@@ -545,8 +545,31 @@ html:has(.modal:not([hidden])) .fab{opacity:0;visibility:hidden}
 @keyframes pop{from{opacity:0;transform:translateY(10px)}}
 @keyframes rise{from{opacity:0;transform:translateY(26px)}}
 .up{animation:rise .9s cubic-bezier(.2,.8,.2,1) both}.d1{animation-delay:.1s}.d2{animation-delay:.22s}.d3{animation-delay:.34s}.d4{animation-delay:.46s}
-@keyframes rvin{from{opacity:.45;transform:translateY(40px)}to{opacity:1;transform:none}}
-@supports (animation-timeline: view()){.rv{animation:rvin linear both;animation-timeline:view();animation-range:entry 0% entry 30%}}
+/* поява під час гортання: працює в усіх браузерах, і на iPhone теж.
+   Униз — блоки з'являються по черзі, угору — так само по черзі ховаються.
+   Окремі властивості translate/scale/rotate не заважають ефектам наведення (там transform). */
+html.mo .rv{opacity:0;translate:0 var(--ry,38px);scale:var(--rs,1);rotate:var(--rr,0deg)}
+html.mo .rv.in{opacity:1;translate:none;scale:none;rotate:none;animation:rvIn .85s cubic-bezier(.2,.8,.2,1) var(--rd,0s) backwards}
+html.mo .rv.out{animation:rvOut .5s cubic-bezier(.4,0,.6,1) backwards}
+html.pl-on .rv.in{animation-play-state:paused}
+@keyframes rvIn{from{opacity:0;translate:0 var(--ry,38px);scale:var(--rs,1);rotate:var(--rr,0deg)}}
+@keyframes rvOut{from{opacity:1;translate:none;scale:none;rotate:none}}
+.fc.rv,.ic.rv,.stat.rv,.ic-ph figure.rv{--ry:28px;--rs:.93}
+.loc.rv{--ry:46px;--rs:.94;--rr:-2.5deg}
+.loc.rv:nth-child(2){--rr:2deg}
+.rv-s{--ry:16px}
+.sup-k.rv{--rs:.9;--ry:20px}
+
+/* телефон: замість наведення мишкою картка «оживає», коли доходить до середини екрана; дотик трохи втискає кнопки */
+@media (hover:none){
+  .fc.on{transform:translateY(-5px);box-shadow:0 22px 40px rgba(25,25,25,.22)}
+  .fc.on .fc-img{transform:scale(1.08)}
+  .fc.on::after{background:linear-gradient(180deg,rgba(15,11,9,.25) 0%,rgba(15,11,9,.42) 50%,rgba(150,30,14,.7) 100%)}
+  .fc.on .go{background:var(--red);color:#fff}
+  .ic-ph figure.on img{transform:scale(1.08)}
+  .loc .bx.on{transform:translateY(-6px) rotate(-1deg)}
+  .btn:active,.fc:active,.tier:active,.opt:active,.about-btn:active,.loc .lk a:active,.fab:active{scale:.96!important}
+}
 
 .replay2{position:absolute;right:16px;top:16px;display:inline-flex;align-items:center;gap:6px;min-height:34px;padding:0 12px;border-radius:8px;border:1.5px solid var(--line);background:#fff;font-size:12px;font-weight:700;cursor:pointer}
 .replay2:hover{border-color:var(--red);color:var(--red)}
@@ -577,11 +600,20 @@ html.pl-on .fab{opacity:0;visibility:hidden}
 @keyframes plbar{to{transform:scaleX(1)}}
 @media (max-width:560px){.pl-logo{width:124px;height:124px}.pl-mark{width:78px}.pl-name{font-size:11px;letter-spacing:.22em;text-indent:.22em}@keyframes plname{from{opacity:0;letter-spacing:.4em}to{opacity:.95;letter-spacing:.22em}}}
 
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.trail .tm{stroke-dashoffset:0}}
+/* якщо в телефоні ввімкнено «Зменшити рух»: без руху й заставки, але блоки м'яко проявляються */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;scroll-behavior:auto!important;transition-property:opacity,color,background-color,border-color,box-shadow,fill,stroke!important}
+  html.mo .rv,html.mo .rv.in{translate:none;scale:none;rotate:none}
+  html.mo .rv.in{animation:rvFade .7s ease var(--rd,0s) backwards!important}
+  html.mo .rv.out{animation:rvFadeOut .45s ease backwards!important}
+  .trail .tm{stroke-dashoffset:0}
+}
+@keyframes rvFade{from{opacity:0}}
+@keyframes rvFadeOut{from{opacity:1}}
 </style>
 </head>
 <body>
-<script>try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('pl-on')}catch(e){}</script>
+<script>try{var d=document.documentElement;d.classList.add('mo');setTimeout(function(){if(!window.__rvOk)d.classList.remove('mo')},6000);if(!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('pl-on')}catch(e){}</script>
 <div class="pl" id="pl" aria-hidden="true">
   <svg width="0" height="0" style="position:absolute" focusable="false"><defs><symbol fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="fi-coffee" viewBox="0 0 48 48"><path d="M10 20h22v8a10 10 0 0 1-10 10h-2a10 10 0 0 1-10-10z"/><path d="M32 23h3a5 5 0 0 1 0 10h-4"/><path d="M7 43h30"/><path d="M16 6q-3 3 0 6t0 6M22 6q-3 3 0 6t0 6M28 6q-3 3 0 6t0 6"/></symbol><symbol fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="fi-pizza" viewBox="0 0 48 48"><path d="M24 43L7 11q17-9 34 0z"/><path d="M10 16q14-7 28 0"/><circle cx="21" cy="22" r="2.6"/><circle cx="28" cy="28" r="2.3"/><circle cx="20" cy="31" r="2"/></symbol><symbol fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="fi-burger" viewBox="0 0 48 48"><path d="M8 22a16 12 0 0 1 32 0z"/><path d="M19 15l1 1M26 13l1 1M31 17l1 1"/><path d="M7 27q3-3 6 0t6 0t6 0t6 0t6 0t5 0"/><path d="M8 32h32"/><path d="M9 36h30v1a5 5 0 0 1-5 5H14a5 5 0 0 1-5-5z"/></symbol><symbol fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="fi-donut" viewBox="0 0 48 48"><circle cx="24" cy="24" r="16"/><circle cx="24" cy="24" r="5"/><path d="M11 20q4-8 13-9q10 1 14 10q-4 3-7 1q-3-4-7-4q-5 0-8 5q-3 1-5-3z"/><path d="M18 14l2 2M29 14l-1 2M34 22l-2 0"/></symbol><symbol fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="fi-cupcake" viewBox="0 0 48 48"><path d="M13 27h22l-3 15H16z"/><path d="M20 27l1 15M28 27l-1 15"/><path d="M10 27q-1-8 7-10q2-6 7-6t7 6q8 2 7 10z"/><circle cx="24" cy="8" r="3"/></symbol><symbol fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="fi-icecream" viewBox="0 0 48 48"><path d="M15 23l9 21 9-21"/><path d="M18 30l10-7M20 36l8-6"/><path d="M13 23a11 11 0 0 1 22 0z"/><path d="M19 12a5 5 0 0 1 10 0"/></symbol><symbol fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="fi-croissant" viewBox="0 0 48 48"><path d="M5 31q4-15 19-17q15 2 19 17q-4 3-8 0q-3-8-11-9q-8 1-11 9q-4 3-8 0z"/><path d="M15 18l4 9M24 14v9M33 18l-4 9"/></symbol><symbol fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="fi-sushi" viewBox="0 0 48 48"><ellipse cx="24" cy="16" rx="14" ry="6"/><ellipse cx="24" cy="16" rx="6" ry="2.4"/><path d="M10 16v15a14 6 0 0 0 28 0V16"/><path d="M17 21v13M31 21v13"/></symbol><symbol fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="fi-cherry" viewBox="0 0 48 48"><circle cx="15" cy="35" r="7"/><circle cx="32" cy="37" r="6.5"/><path d="M15 28q3-12 14-19M32 30q-3-10-3-21"/><path d="M29 9q8-3 11 4q-8 2-11-4z"/></symbol><symbol fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="fi-fish" viewBox="0 0 48 48"><path d="M5 24q13-13 27 0q-14 13-27 0z"/><path d="M32 24l11-8v16z"/><circle cx="13" cy="22" r="1.4"/><path d="M20 19q2 5 0 10"/></symbol><symbol fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="fi-chef" viewBox="0 0 48 48"><path d="M14 30q-7-1-7-8t8-7q2-8 9-8t9 8q8 0 8 7t-7 8z"/><path d="M14 30h20v9H14z"/><path d="M20 30v-5M28 30v-5"/></symbol><symbol fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="fi-wine" viewBox="0 0 48 48"><path d="M15 6h18q2 16-9 18q-11-2-9-18z"/><path d="M16 13h16"/><path d="M24 24v15M17 42h14"/></symbol><symbol fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="fi-lemon" viewBox="0 0 48 48"><path d="M5 25a19 19 0 0 0 38 0z"/><path d="M10 25a14 14 0 0 0 28 0"/><path d="M24 25v13M24 25l-9 9M24 25l9 9M24 25l-12 4M24 25l12 4"/></symbol><symbol fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="fi-cutlery" viewBox="0 0 48 48"><path d="M12 5v11q0 5 5 5t5-5V5M17 5v38"/><path d="M33 5q7 6 5 19h-5v19"/></symbol><symbol fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="fi-carrot" viewBox="0 0 48 48"><path d="M32 16L9 41l2 2 26-21q3-5-5-6z"/><path d="M18 31l3 3M24 25l3 3"/><path d="M33 16q-2-7 2-10M35 17q4-6 9-5M37 20q7-1 8 3"/></symbol></defs></svg>
   <div class="pl-rain" id="plRain"></div>
@@ -637,11 +669,11 @@ html.pl-on .fab{opacity:0;visibility:hidden}
 </section>
 <div class="wrap hero-stats">
   <div class="card stats up d3">
-    <div class="stat"><span>Запуск під ключ<sup>*</sup></span><b>від $2 800</b></div>
-    <div class="stat"><span>Інвестиції<sup>*</sup></span><b>від $10 000</b></div>
-    <div class="stat"><span>Час на запуск<sup>*</sup></span><b>1,5–3 міс.</b></div>
-    <div class="stat"><span>Відкритих закладів</span><b data-count="20" data-suffix="+">20+</b></div>
-    <div class="stat"><span>Супровід</span><b>1 місяць</b></div>
+    <div class="stat rv"><span>Запуск під ключ<sup>*</sup></span><b data-count="2800" data-prefix="від $">від $2 800</b></div>
+    <div class="stat rv"><span>Інвестиції<sup>*</sup></span><b data-count="10000" data-prefix="від $">від $10 000</b></div>
+    <div class="stat rv"><span>Час на запуск<sup>*</sup></span><b>1,5–3 міс.</b></div>
+    <div class="stat rv"><span>Відкритих закладів</span><b data-count="20" data-suffix="+">20+</b></div>
+    <div class="stat rv"><span>Супровід</span><b>1 місяць</b></div>
   </div>
 </div>
 
@@ -659,24 +691,24 @@ html.pl-on .fab{opacity:0;visibility:hidden}
   <div class="wrap">
     <h2 class="h2 center rv">Ви купуєте не вивіску, <em>а готовий заклад</em></h2>
     <p class="sub center rv">Ось що отримує кожен наш клієнт</p>
-    <div class="inc rv">
-      <div class="ic plan" style="position:relative">
+    <div class="inc">
+      <div class="ic plan rv" style="position:relative">
         <h3>Дизайн-проєкт</h3><p>Планування залу й кухні «від А до Я»</p>
         <button class="replay2" type="button" id="replayPlan"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>Зібрати ще раз</button>
         <div class="plan-v" id="planScene"><video id="planVideo" src="media/design.mp4" poster="img/design-start.webp" width="1280" height="720" muted playsinline preload="metadata" aria-label="Відео: порожній зал за 5 секунд перетворюється на готовий ресторан за дизайн-проєктом"></video><span class="plan-tag">Порожній зал → готовий ресторан</span></div>
       </div>
-      <div class="ic vid"><h3>Кухня й обладнання</h3><p>Так виглядає кухня перед відкриттям: усе змонтовано, обладнання ще в заводській плівці.</p>
+      <div class="ic vid rv"><h3>Кухня й обладнання</h3><p>Так виглядає кухня перед відкриттям: усе змонтовано, обладнання ще в заводській плівці.</p>
         <div class="ic-v"><video id="kv2" src="media/kitchen.mp4" poster="media/kitchen-poster.jpg" autoplay muted loop playsinline preload="none" aria-label="Відео з об'єкта: нова кухня перед відкриттям"></video><span class="ic-rec"><i></i>Відео з об'єкта</span></div>
-        <div class="ic-ph"><figure><img src="img/kitchen-1.webp" alt="Нова кухня з обладнанням перед відкриттям" width="885" height="1080" loading="lazy" style="object-position:50% 60%"><figcaption>Монтаж</figcaption></figure><figure><img src="img/kitchen-2.webp" alt="Робоча кухня з пароконвектоматами" width="810" height="1080" loading="lazy" style="object-position:50% 45%"><figcaption>У роботі</figcaption></figure></div>
-        <ul class="ic-list"><li><i><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>Планування кухні під ваше меню</li><li><i><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>Обладнання ваше, наше перевірене або під бюджет</li><li><i><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>Монтаж під контролем шефа</li></ul>
+        <div class="ic-ph"><figure class="rv"><img src="img/kitchen-1.webp" alt="Нова кухня з обладнанням перед відкриттям" width="885" height="1080" loading="lazy" style="object-position:50% 60%"><figcaption>Монтаж</figcaption></figure><figure class="rv"><img src="img/kitchen-2.webp" alt="Робоча кухня з пароконвектоматами" width="810" height="1080" loading="lazy" style="object-position:50% 45%"><figcaption>У роботі</figcaption></figure></div>
+        <ul class="ic-list"><li class="rv rv-s"><i><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>Планування кухні під ваше меню</li><li class="rv rv-s"><i><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>Обладнання ваше, наше перевірене або під бюджет</li><li class="rv rv-s"><i><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>Монтаж під контролем шефа</li></ul>
       </div>
-      <div class="ic"><h3>Команда</h3><p>Найм і навчання персоналу до відкриття</p>
+      <div class="ic rv"><h3>Команда</h3><p>Найм і навчання персоналу до відкриття</p>
         <svg class="people" viewBox="0 0 220 110" aria-hidden="true"><g fill="#C9C4BE"><circle cx="30" cy="40" r="11"/><path d="M14 104c0-26 7-46 16-46s16 20 16 46z"/><circle cx="190" cy="40" r="11"/><path d="M174 104c0-26 7-46 16-46s16 20 16 46z"/></g><g fill="#A9A49E"><circle cx="66" cy="34" r="12"/><path d="M48 106c0-30 8-52 18-52s18 22 18 52z"/><circle cx="154" cy="34" r="12"/><path d="M136 106c0-30 8-52 18-52s18 22 18 52z"/></g><g fill="#D6301C"><circle cx="110" cy="22" r="15"/><path d="M86 108c0-38 11-64 24-64s24 26 24 64z"/></g></svg>
       </div>
-      <div class="ic"><h3>Меню й техкарти</h3><p>Страви з правильною собівартістю від шефа-технолога</p>
+      <div class="ic rv"><h3>Меню й техкарти</h3><p>Страви з правильною собівартістю від шефа-технолога</p>
         <div class="row2"><div style="font:800 34px/1 var(--fh);color:var(--red)">16</div><div style="font-size:13px;color:var(--mute);text-align:right">задач під ключ<br>від плану до відкриття</div></div>
       </div>
-      <div class="ic more">
+      <div class="ic more rv">
         <div class="t"><h3>І ще багато іншого</h3><p>Локація, документи, каса, упаковка, просування й місяць супроводу. Залиште номер, і шеф розповість, що потрібно саме вам.</p></div>
         <form id="moreForm" novalidate data-source="included">
           <label class="fld"><span class="sr">Телефон</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><input id="m-phone" name="phone" type="tel" required autocomplete="tel" placeholder="Ваш телефон"></label>
@@ -742,10 +774,10 @@ html.pl-on .fab{opacity:0;visibility:hidden}
     <div class="sup-card rv">
       <div class="sc-l"><span class="sc-k">Після відкриття</span><h3><big>+1</big> місяць супроводу</h3><p>Заклад не залишається сам на сам із першими гостями.</p></div>
       <ul class="sc-r">
-        <li><i><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>Інструктаж і навчання команди</li>
-        <li><i><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>Налагодження кухні й процесів</li>
-        <li><i><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>Корекція меню за першими гостями</li>
-        <li><i><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>Відповіді на питання</li>
+        <li class="rv rv-s"><i><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>Інструктаж і навчання команди</li>
+        <li class="rv rv-s"><i><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>Налагодження кухні й процесів</li>
+        <li class="rv rv-s"><i><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>Корекція меню за першими гостями</li>
+        <li class="rv rv-s"><i><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>Відповіді на питання</li>
       </ul>
     </div>
     <p class="sup-k rv">За це ви й платите: <span>за впевненість і спокій.</span></p>
@@ -1177,7 +1209,7 @@ html.pl-on .fab{opacity:0;visibility:hidden}
     if (!v) return;
     function play() { var p = v.play(); if (p && p.catch) p.catch(function () { v.poster = END_POSTER; }); }
     var rp = $('#tlReplay'); if (rp) rp.addEventListener('click', function () { v.currentTime = 0; play(); });
-    if (reduce) { v.poster = END_POSTER; return; }
+    v.addEventListener('playing', function () { v.dataset.ok = '1'; });
     if (window.__plDone) play(); else document.addEventListener('pl:done', play, { once: true });
   })();
 
@@ -1186,21 +1218,20 @@ html.pl-on .fab{opacity:0;visibility:hidden}
   var planV = $('#planVideo');
   function playPlan() {
     if (!planV) return;
-    if (reduce) { planV.poster = 'img/design-end.webp'; return; }
     try { planV.currentTime = 0; } catch (e) {}
     var pr = planV.play(); if (pr && pr.catch) pr.catch(function () { planV.poster = 'img/design-end.webp'; });
   }
   $('#replayPlan').addEventListener('click', playPlan);
-  if (reduce && planV) planV.poster = 'img/design-end.webp';
 
   /* ---------- reveal triggers ---------- */
   function countUp(el) {
-    var to = +el.dataset.count, suf = el.dataset.suffix || '', t0 = null;
-    if (reduce) return;
-    (function step(t) { if (t0 === null) t0 = t; var p = Math.min(1, (t - t0) / 1400), e = 1 - Math.pow(1 - p, 3); el.textContent = Math.round(to * e) + suf; if (p < 1) requestAnimationFrame(step); })(performance.now());
+    if (!window.__plDone) { document.addEventListener('pl:done', function () { countUp(el); }, { once: true }); return; }   // рахуємо, коли заставка вже зникла
+    var to = +el.dataset.count, pre = el.dataset.prefix || '', suf = el.dataset.suffix || '', t0 = null;
+    (function step(t) { if (t0 === null) t0 = t; var p = Math.min(1, (t - t0) / 1600), e = 1 - Math.pow(1 - p, 3); el.textContent = pre + fmt(Math.round(to * e)) + suf; if (p < 1) requestAnimationFrame(step); })(performance.now());
   }
   var watch = [['[data-count]', countUp], ['.trail', function (e) { e.classList.add('in'); }], ['#fvis', function (e) { e.classList.add('in'); }], ['#tg', function (e) { e.classList.add('in'); }], ['#screen', function (e) { e.classList.add('in'); }], ['#planScene', playPlan]];
-  if ('IntersectionObserver' in window && !reduce) {
+  if ('IntersectionObserver' in window) {
+    $$('[data-count]').forEach(function (el) { el.textContent = (el.dataset.prefix || '') + '0' + (el.dataset.suffix || ''); });
     var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.__fn(e.target); io.unobserve(e.target); } }); }, { threshold: 0.35 });
     $$('#fvis,#tg,#screen,#stepsGrid').forEach(function (e) { e.classList.add('arm'); });
     // етапи прив'язані до гортання: униз — з'являються крок за кроком, угору — так само по черзі зникають
@@ -1226,7 +1257,7 @@ html.pl-on .fab{opacity:0;visibility:hidden}
   } else {
     $$('.trail,#fvis,#tg,#screen,#stepsGrid .step').forEach(function (e) { e.classList.add('in'); });
   }
-  if (reduce) $$('video').forEach(function (v) { if (v.id === 'tlVideo') return; v.removeAttribute('autoplay'); v.pause(); v.controls = true; });
+  if (reduce) $$('video').forEach(function (v) { if (v.id === 'tlVideo' || v.id === 'planVideo') return; v.removeAttribute('autoplay'); v.pause(); v.controls = true; });
 
   /* ---------- mobile menu ---------- */
   var burger = $('#burger'), nav = $('#nav');
@@ -1536,6 +1567,46 @@ html.pl-on .fab{opacity:0;visibility:hidden}
     if (acc >= POPUP_EVERY_MS) openQuiz();
   }
   if (POPUP_EVERY_MS > 0) setInterval(tick, 1000);
+
+  /* ---------- поява блоків під час гортання (у всіх браузерах, і на телефоні) ----------
+     Блок отримує .in, коли його верх піднімається вище 92% висоти екрана. Якщо гортаємо назад угору
+     і блок знову йде вниз за цю лінію — .out (м'яко ховається). Кілька блоків, що з'явилися разом,
+     ідуть по черзі: зверху вниз і зліва направо. */
+  (function () {
+    var root = document.documentElement, els = $$('.rv');
+    window.__rvOk = true;
+    if (!('IntersectionObserver' in window)) { root.classList.remove('mo'); return; }
+    var rio = new IntersectionObserver(function (es) {
+      var ins = [];
+      es.forEach(function (e) {
+        var el = e.target;
+        if (e.isIntersecting) { if (!el.classList.contains('in')) ins.push(el); }
+        else if (e.boundingClientRect.top > 0 && el.classList.contains('in')) { el.classList.remove('in'); el.classList.add('out'); }
+      });
+      ins.sort(function (a, b) { var ra = a.getBoundingClientRect(), rb = b.getBoundingClientRect(); return Math.abs(ra.top - rb.top) > 30 ? ra.top - rb.top : ra.left - rb.left; });
+      ins.forEach(function (el, i) { el.style.setProperty('--rd', (Math.min(i, 7) * 0.09).toFixed(2) + 's'); el.classList.remove('out'); el.classList.add('in'); });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0 });
+    els.forEach(function (el) { rio.observe(el); });
+  })();
+
+  /* ---------- телефон: картка, яка дійшла до середини екрана, «оживає» так само, як від наведення мишкою ---------- */
+  if (window.matchMedia && matchMedia('(hover: none)').matches && 'IntersectionObserver' in window) {
+    var fio = new IntersectionObserver(function (es) { es.forEach(function (e) { e.target.classList.toggle('on', e.isIntersecting); }); }, { rootMargin: '-43% 0px -43% 0px' });
+    $$('.fc, .ic-ph figure, .loc .bx').forEach(function (el) { fio.observe(el); });
+  }
+
+  /* ---------- iPhone у режимі енергозбереження не запускає відео саме: запускаємо з першого дотику ---------- */
+  (function () {
+    function inView(el) { var r = el.getBoundingClientRect(); return r.bottom > 0 && r.top < window.innerHeight; }
+    function unlock() {
+      document.removeEventListener('touchend', unlock, true); document.removeEventListener('click', unlock, true);
+      var hv = $('#tlVideo');
+      if (hv && !hv.dataset.ok && hv.paused && inView(hv)) { var p = hv.play(); if (p && p.catch) p.catch(function () {}); }
+      if (reduce) return;
+      $$('video[autoplay]').forEach(function (v) { if (v.paused && inView(v)) { var p2 = v.play(); if (p2 && p2.catch) p2.catch(function () {}); } });
+    }
+    document.addEventListener('touchend', unlock, true); document.addEventListener('click', unlock, true);
+  })();
 })();
 </script>
 
