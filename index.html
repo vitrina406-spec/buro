@@ -1,0 +1,1543 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" type="image/svg+xml" href="img/buro-icon.svg">
+<title>Бюро ресторанних рішень</title>
+<meta name="description" content="Бюро ресторанних рішень: відкрийте свій заклад під ключ без франшизи й роялті: кафе, кав'ярня, піцерія, стрітфуд. Шеф Дмитро, 20+ запусків по всій Україні.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&amp;family=Caveat:wght@600&amp;display=swap">
+<style>
+/* Layout: light textured page; centered bold headlines with red keywords; pinned dashed frames joined by
+   hand-drawn dashed trails; glossy 3D map pins, question mark and bells; a red notched banner; real photos. */
+:root{
+  --red:#D6301C;     /* the one accent */
+  --red2:#B21F0D;
+  --red3:#FF6A4F;
+  --redsoft:#FCEDEA;
+  --ink:#191919;
+  --ink2:#3B3B3B;
+  --mute:#5C5955;
+  --page:#F7F6F4;
+  --white:#FFFFFF;
+  --line:#E7E3DF;
+  --field:#F2F0EE;
+  --fh:'Montserrat','Arial Black',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --fb:'Montserrat',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+  --fs:'Caveat','Segoe Script',cursive;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background-color:var(--page);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.42 0 0 0 0 0.4 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");color:var(--ink);font-family:var(--fb);font-weight:500;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video{max-width:100%;height:auto;display:block}
+[hidden]{display:none!important}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+.wrap{max-width:1160px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+section{position:relative;padding-block:clamp(56px,7vw,96px)}
+.h2{margin:0;font:700 clamp(24px,3.1vw,40px)/1.18 var(--fh);letter-spacing:-.01em;text-wrap:balance}
+.h2 em,.h1 em,.red{font-style:normal;color:var(--red)}
+.center{text-align:center}
+.sub{margin:14px auto 0;max-width:60ch;color:var(--mute);font-size:17px;line-height:1.6}
+.card{background:var(--white);border-radius:16px;box-shadow:0 10px 30px rgba(25,25,25,.07),0 1px 2px rgba(25,25,25,.05)}
+
+/* buttons & fields */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 26px;border-radius:10px;border:none;font:700 15px/1 var(--fb);text-decoration:none;cursor:pointer;transition:transform .2s,box-shadow .2s,filter .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-red{background:linear-gradient(180deg,#E8472F 0%,var(--red) 55%,var(--red2) 100%);color:#fff;box-shadow:0 10px 24px rgba(214,48,28,.32),inset 0 1px 0 rgba(255,255,255,.25)}
+.btn-red:hover{box-shadow:0 14px 30px rgba(214,48,28,.42),inset 0 1px 0 rgba(255,255,255,.25)}
+.btn-white{background:#fff;color:var(--red);box-shadow:0 8px 20px rgba(25,25,25,.12)}
+.btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:10px}
+.fld{position:relative;display:block}
+.fld svg{position:absolute;left:14px;top:50%;margin-top:-9px;pointer-events:none;color:#9A9692}
+.fld input,.fld select{width:100%;min-height:52px;padding:0 14px 0 42px;border-radius:10px;border:1.5px solid transparent;background:var(--field);font-size:15px;font-weight:500;color:var(--ink);appearance:none}
+.fld select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23666' stroke-width='1.6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.fld input:focus,.fld select:focus{border-color:var(--red);outline:none;background-color:#fff}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.45;color:var(--mute);cursor:pointer}
+.consent input{flex:0 0 18px;width:18px;height:18px;margin:0;accent-color:var(--red)}
+.consent a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.consent a:hover{color:var(--red)}
+.ok{display:flex;gap:14px;align-items:center;padding:18px;border-radius:12px;background:var(--redsoft);font-weight:600}
+.ok b{display:block;font:700 18px/1.2 var(--fh);color:var(--red)}
+
+/* pinned dashed frame */
+.dash{position:relative;border:2px dashed var(--red);border-radius:18px;background:rgba(255,255,255,.72)}
+.pinball{position:absolute;top:-13px;left:50%;width:24px;height:24px;margin-left:-12px;border-radius:50%;background:radial-gradient(circle at 34% 30%,#FF9A86 0,#E8432C 35%,#A8180A 100%);box-shadow:0 5px 10px rgba(168,24,10,.35),inset -2px -3px 5px rgba(0,0,0,.18)}
+.pinball::after{content:"";position:absolute;left:50%;top:22px;width:2px;height:10px;margin-left:-1px;background:linear-gradient(#A8180A,transparent)}
+
+/* drawn trails */
+.trail{position:absolute;pointer-events:none;overflow:visible}
+.trail .tp{fill:none;stroke:var(--red);stroke-width:2;stroke-dasharray:7 7;stroke-linecap:round}
+.trail .tm{fill:none;stroke:#fff;stroke-width:8;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1}
+.trail.in .tm{animation:draw 2.2s cubic-bezier(.45,.1,.3,1) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+
+/* ---------- header ---------- */
+.site-head{background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);position:fixed;left:0;right:0;top:env(safe-area-inset-top,0px);z-index:40;transition:transform .8s cubic-bezier(.2,.8,.2,1),opacity .6s,background-color .4s,border-color .4s}
+html{scroll-padding-top:84px}
+.site-head.over{background:linear-gradient(180deg,rgba(17,14,12,.5),rgba(17,14,12,0));border-bottom-color:transparent;-webkit-backdrop-filter:none;backdrop-filter:none}
+.logo-img.on-dark,.site-head.over .logo-img.on-light{display:none}
+.site-head.over .logo-img.on-dark{display:block}
+.site-head.over .phone,.site-head.over .phone small{color:#fff}
+@media (min-width:1021px){.site-head.over .nav a{color:rgba(255,255,255,.9)}.site-head.over .nav a:hover{color:#fff}}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:41;background:#fff}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.logo b{display:block;font:800 15px/1 var(--fh);color:var(--red);letter-spacing:.02em}
+.logo-img{height:56px;width:auto}
+.foot-logo{height:76px}
+@media (max-width:560px){.logo-img{height:46px}.logo-img.foot-logo{height:64px}}
+.tagline{display:inline-flex;margin-bottom:14px;padding:7px 14px;border-radius:999px;background:var(--redsoft);color:var(--red);font:700 11px/1.2 var(--fh);letter-spacing:.08em;text-transform:uppercase}
+.logo small{display:block;margin-top:3px;font:700 9.5px/1 var(--fh);letter-spacing:.05em}
+.nav{display:flex;gap:22px}
+.nav a{color:var(--ink2);text-decoration:none;font-size:14px;font-weight:600;padding:10px 0}
+.nav a:hover{color:var(--red)}
+.head-r{display:flex;align-items:center;gap:16px}
+.phone{font-weight:800;font-size:15px;line-height:1.1;text-align:right}
+.phone small{display:block;font-weight:500;font-size:11px;color:var(--mute)}
+.burger{display:none;width:44px;height:44px;border-radius:10px;border:1.5px solid var(--line);background:#fff;cursor:pointer;align-items:center;justify-content:center}
+@media (max-width:1020px){
+  .nav{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:0;background:#fff;border-bottom:1px solid var(--line);padding:6px max(16px,env(safe-area-inset-right,0px)) 12px max(16px,env(safe-area-inset-left,0px));box-shadow:0 20px 30px rgba(0,0,0,.08)}
+  .nav.open{display:flex}
+  .nav a{padding:14px 0;border-bottom:1px solid var(--line);font-size:15px}
+  .burger{display:inline-flex}
+  .phone{display:none}
+}
+@media (max-width:480px){.head-cta{display:none}}
+
+/* ---------- hero: відео на пів екрана ---------- */
+:root{--hh:73px;--gut:max(16px,calc((100vw - 1128px) / 2))}
+.hero{position:relative;isolation:isolate;display:flex;align-items:center;min-height:100vh;min-height:100svh;padding-block:calc(var(--hh) + clamp(24px,4vw,48px)) clamp(96px,9vw,120px)}
+.hero-media{position:absolute;z-index:1;top:calc(var(--hh) + 20px);right:0;bottom:0;left:50%;overflow:hidden;border-radius:28px 0 0 28px;background:#1B1714;box-shadow:0 30px 60px rgba(25,25,25,.22);transition:top 1.1s cubic-bezier(.7,0,.2,1),left 1.1s cubic-bezier(.7,0,.2,1),height 1.1s cubic-bezier(.7,0,.2,1),border-radius 1.1s}
+.hero-v{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;object-position:56% 50%}
+.hero-in{position:relative;z-index:2;width:100%}
+.hero-text{max-width:min(580px,calc(50vw - var(--gut) - 48px));min-width:0}
+.h1{margin:0;font:700 clamp(30px,3.7vw,52px)/1.12 var(--fh);letter-spacing:-.015em;text-wrap:balance}
+.hero-lead{margin:16px 0 0;max-width:46ch;font-size:17px;line-height:1.6;color:var(--ink2)}
+.hero-form{margin-top:22px;display:flex;flex-direction:column;gap:12px}
+.hero-form .btn{align-self:flex-start;min-width:260px}
+.hero-chips{position:absolute;left:24px;bottom:92px;z-index:2;display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.tl-top{display:flex;align-items:center;gap:9px;padding:6px 6px 6px 12px;border:0;border-radius:999px;background:rgba(255,255,255,.95);box-shadow:0 8px 20px rgba(0,0,0,.25);font:inherit;cursor:pointer}
+.tl-dot{flex:none;width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 0 0 rgba(214,48,28,.5);animation:tlpulse 1.8s ease-out infinite}
+@keyframes tlpulse{70%{box-shadow:0 0 0 7px rgba(214,48,28,0)}100%{box-shadow:0 0 0 0 rgba(214,48,28,0)}}
+.tl-cap{white-space:nowrap;font:700 13px/1.2 var(--fb);color:var(--ink)}
+.tl-btn{flex:none;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--redsoft);color:var(--red);transition:background-color .2s,color .2s}
+.tl-top:hover .tl-btn{background:var(--red);color:#fff}
+.tl-top:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.hero-badge{display:flex;align-items:center;gap:12px;padding:10px 16px 10px 10px;border-radius:14px;background:#fff;color:var(--ink);box-shadow:0 14px 30px rgba(0,0,0,.25)}
+.hero-badge img{width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:50% 15%}
+.hero-badge b{display:block;font:700 13px/1.2 var(--fh)}
+.hero-badge span{font-size:13px;color:var(--mute)}
+.hero-stamp{position:absolute;z-index:3;left:calc(50% - 56px);top:calc(var(--hh) + 64px);width:112px;height:112px}
+.hero-stamp svg{width:100%;height:100%;animation:spin 18s linear infinite;filter:drop-shadow(0 10px 20px rgba(0,0,0,.18))}
+.hero-stamp b{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:800 22px/1 var(--fh);color:var(--red)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero-stats{position:relative;z-index:3;margin-top:-64px}
+.hero-stats .stats{margin-top:0}
+/* intro: спершу тільки відео на весь екран, потім усе інше */
+.fab{transition:opacity .6s,visibility .6s}
+@media (max-width:960px){
+  .hero{display:block;min-height:0;padding-block:calc(var(--hh) + min(75vw,620px) + 28px) 96px}
+  .hero-media{top:var(--hh);left:0;bottom:auto;height:min(75vw,620px);border-radius:0;box-shadow:none}
+  .hero-text{max-width:none}
+  .hero-chips{left:12px;bottom:12px;flex-direction:row;flex-wrap:wrap;align-items:center;right:12px}
+  .hero-stamp{left:auto;right:12px;top:calc(var(--hh) + 12px);width:84px;height:84px}
+  .hero-stamp b{font-size:17px}
+  .hero-stats{margin-top:0}
+}
+@media (max-width:560px){.hero-form .btn{align-self:stretch;min-width:0}.tl-cap{font-size:12px}.hero-badge{padding:7px 12px 7px 7px}.hero-badge img{width:34px;height:34px}.hero-badge span{display:none}.tl-top{padding-left:10px}}
+.stats{margin-top:clamp(28px,4vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:0;padding:6px 8px}
+.stat{padding:16px 18px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:none}
+.stat span{display:block;font-size:13.5px;font-weight:600;color:var(--mute)}
+.stat span sup{color:var(--red)}
+.stat b{display:block;margin-top:4px;font:700 19px/1.2 var(--fh);color:var(--red);font-variant-numeric:tabular-nums}
+@media (max-width:700px){.stat{border-right:none;border-bottom:1px solid var(--line)}.stat:last-child{border-bottom:none}}
+
+/* ---------- banner ---------- */
+.banner{position:relative;margin-inline:auto;max-width:900px;padding:clamp(26px,3.5vw,40px) clamp(24px,8vw,120px);color:#fff;text-align:center;background:linear-gradient(180deg,#E3412A,var(--red) 50%,#B81F0C);border-radius:28px;box-shadow:0 24px 50px rgba(214,48,28,.3)}
+.banner::before,.banner::after{content:"";position:absolute;top:50%;width:26px;height:52px;margin-top:-26px;background:var(--page);border-radius:0 26px 26px 0}
+.banner::before{left:-1px}
+.banner::after{right:-1px;transform:scaleX(-1)}
+.banner h3{margin:0;font:700 clamp(18px,2.3vw,26px)/1.25 var(--fh)}
+.banner p{margin:10px auto 0;max-width:52ch;font-size:16px;color:#FFE3DD}
+.banner .bi{position:absolute;top:50%;width:clamp(48px,6vw,74px);transform:translateY(-50%);color:#fff;opacity:.95}
+.banner .bi.l{left:clamp(28px,4vw,46px)}.banner .bi.r{right:clamp(28px,4vw,46px)}
+@media (max-width:640px){.banner .bi{display:none}}
+.clip{position:absolute;left:50%;top:-22px;width:34px;height:44px;margin-left:-17px;animation:swing 3.2s ease-in-out infinite;transform-origin:50% 0}
+@keyframes swing{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
+
+/* ---------- founder ---------- */
+.founder{display:flex;flex-wrap:wrap;align-items:stretch;border-radius:22px;overflow:hidden;background:#fff;box-shadow:0 10px 30px rgba(25,25,25,.07)}
+.founder-text{flex:1.2 1 440px;min-width:0;padding:clamp(28px,4vw,52px)}
+.founder-text h2{margin:0;font:700 clamp(22px,2.6vw,32px)/1.2 var(--fh);color:var(--red)}
+.founder-text h2 span{color:var(--ink)}
+.founder-text p{margin:14px 0 0;font-size:16.5px;line-height:1.7;color:var(--ink2);max-width:60ch}
+.founder-text p b{color:var(--ink)}
+.sign{margin-top:22px;display:flex;align-items:center;gap:16px}
+.sign .s{font:600 34px/1 var(--fs);color:var(--red)}
+.sign small{display:block;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+.sign small span{display:block;color:var(--mute);font-weight:600;letter-spacing:0;text-transform:none}
+.about-btn{margin-top:22px;border-color:var(--red);color:var(--red)}
+html:has(.modal:not([hidden])) .fab{opacity:0;visibility:hidden}
+.about-btn:hover{background:var(--red);color:#fff}
+/* попап «Детальніше про Дмитра» */
+.dialog.about{max-width:920px;position:relative}
+.ab-body{padding:clamp(20px,3.5vw,36px);display:flex;flex-direction:column;gap:30px}
+.ab-top{display:grid;grid-template-columns:minmax(0,270px) minmax(0,1fr);gap:clamp(18px,3vw,32px);align-items:start}
+.ab-photo{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 18%;border-radius:16px;box-shadow:0 18px 36px rgba(25,25,25,.18)}
+.ab-top h3{margin:12px 0 0;font:700 clamp(24px,3vw,34px)/1.1 var(--fh)}
+.ab-top p{margin:12px 0 0;font-size:16px;color:var(--ink2)}
+.ab-stats{margin-top:18px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.ab-stats div{padding:12px 14px;border-radius:12px;background:var(--page);font-size:13.5px;line-height:1.35;color:var(--ink2)}
+.ab-stats b{display:block;margin-bottom:3px;font:700 20px/1.1 var(--fh);color:var(--red)}
+.ab-sec h4{margin:0 0 12px;font:700 clamp(17px,1.8vw,20px)/1.2 var(--fh)}
+.ab-sec p{margin:-4px 0 14px;font-size:14px;color:var(--mute)}
+.ab-tags{display:flex;flex-wrap:wrap;gap:8px}
+.ab-tags span{padding:7px 12px;border-radius:999px;background:var(--redsoft);color:var(--red2);font:700 12.5px/1.2 var(--fb)}
+.ab-gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:10px}
+.ab-gal button{position:relative;padding:0;border:0;border-radius:12px;overflow:hidden;cursor:zoom-in;aspect-ratio:4/3;background:#EEE}
+.ab-gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.ab-gal button:hover img{transform:scale(1.06)}
+.ab-gal button:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.ab-gal .cap{position:absolute;left:10px;right:10px;bottom:10px;padding:7px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.5);background:rgba(255,255,255,.16);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);color:#fff;font:700 12px/1.2 var(--fb);text-align:center}
+/* 3D-карусель страв */
+.dsh{--cw:clamp(160px,30vw,270px);--ch:calc(var(--cw) * 4 / 3);position:relative;isolation:isolate;overflow:hidden;padding:26px 0 22px;border-radius:20px;color:#fff;
+  background:radial-gradient(75% 60% at 50% 40%,#EB4A31 0%,#D6301C 48%,#AE1D0B 100%)}
+.dsh::after{content:"";position:absolute;left:0;right:0;bottom:0;height:40%;z-index:-1;background:radial-gradient(60% 100% at 50% 100%,rgba(110,10,0,.35),transparent 70%);pointer-events:none}
+.dsh-embers{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.dsh-embers i{position:absolute;bottom:-10px;width:var(--sz);height:var(--sz);border-radius:50%;background:#fff;box-shadow:0 0 6px 1px rgba(255,255,255,.6);opacity:0;animation:ember var(--d) linear var(--dl) infinite}
+@keyframes ember{0%{transform:translate(0,0);opacity:0}10%{opacity:.8}70%{opacity:.5}100%{transform:translate(18px,-420px);opacity:0}}
+.dsh-head{text-align:center;padding:0 16px}
+.dsh-kicker{font:700 11px/1 var(--fb);letter-spacing:.2em;text-transform:uppercase;color:#FFE3DD}
+.dsh-head h4{margin:8px 0 0;font:700 clamp(19px,2.2vw,24px)/1.2 var(--fh);color:#fff}
+.dsh-stage{position:relative;height:calc(var(--ch) * 1.32);margin-top:22px;perspective:1100px;touch-action:pan-y;cursor:grab;outline:none;user-select:none;-webkit-user-select:none}
+.dsh-stage.drag{cursor:grabbing}
+.dsh-stage:focus-visible .dsh-card.on .dsh-face{outline:3px solid #fff;outline-offset:4px}
+.dsh-track{position:absolute;inset:0;transform-style:preserve-3d}
+.dsh-card{position:absolute;left:50%;top:0;width:var(--cw);height:var(--ch);margin-left:calc(var(--cw) / -2);transform-style:preserve-3d;transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .7s,filter .7s;will-change:transform}
+.dsh-stage.drag .dsh-card{transition:none}
+.dsh-face{position:absolute;inset:0;border-radius:10px;overflow:hidden;background:#8E1708;box-shadow:0 24px 50px rgba(80,8,0,.45);transition:box-shadow .7s}
+.dsh-face img,.dsh-ref img{width:100%;height:100%;object-fit:cover;pointer-events:none;-webkit-user-drag:none}
+.dsh-card.on .dsh-face{box-shadow:0 0 0 2px rgba(255,255,255,.85),0 26px 60px rgba(80,8,0,.5),0 0 70px rgba(255,255,255,.25)}
+.dsh-ref{position:absolute;left:0;right:0;top:calc(100% + 6px);height:32%;overflow:hidden;border-radius:10px 10px 0 0;opacity:.4;-webkit-mask-image:linear-gradient(180deg,#000,transparent 85%);mask-image:linear-gradient(180deg,#000,transparent 85%);pointer-events:none}
+.dsh-ref img{height:var(--ch);transform:scaleY(-1)}
+.dsh-ctrl{display:flex;align-items:center;justify-content:center;gap:clamp(12px,3vw,26px);padding:0 16px}
+.dsh-btn{flex:none;display:grid;place-items:center;width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,.5);background:rgba(255,255,255,.14);color:#fff;cursor:pointer;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:background .2s,border-color .2s,transform .2s}
+.dsh-btn:hover{background:#fff;border-color:#fff;color:var(--red)}
+.dsh-btn:active{transform:scale(.94)}
+.dsh-btn:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.dsh-name{flex:0 1 380px;min-width:0;text-align:center;font:700 clamp(17px,2.4vw,26px)/1.2 var(--fh);text-wrap:balance}
+.dsh-name.sw{animation:dshsw .45s cubic-bezier(.2,.8,.2,1)}
+@keyframes dshsw{from{opacity:0;transform:translateY(8px)}}
+.dsh-hint{margin:12px 0 0;padding:0 16px;text-align:center;font-size:13.5px;color:rgba(255,255,255,.8)}
+.dsh-hint span{color:#fff;font-weight:700}
+@media (max-width:680px){.dsh{--cw:clamp(150px,46vw,210px)}.dsh-btn{width:44px;height:44px}}
+@media (prefers-reduced-motion:reduce){.dsh-embers{display:none}.dsh-card{transition-duration:.2s}}
+.ab-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 20px;padding:18px 22px;border-radius:16px;background:var(--redsoft)}
+.ab-cta p{margin:0;font:700 clamp(16px,1.8vw,19px)/1.3 var(--fh)}
+.ab-zoom{position:fixed;inset:0;z-index:110;display:flex;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-top,0px)) 16px max(16px,env(safe-area-inset-bottom,0px));background:rgba(15,12,10,.9);cursor:zoom-out}
+.ab-zoom img{max-width:100%;max-height:100%;width:auto;height:auto;border-radius:12px;box-shadow:0 30px 60px rgba(0,0,0,.5)}
+@media (max-width:680px){.ab-top{grid-template-columns:1fr}.ab-photo{aspect-ratio:4/3.4;object-position:50% 12%}.ab-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.ab-cta .btn{flex:1 1 100%}}
+.founder-vis{flex:1 1 340px;min-width:0;min-height:480px;position:relative;overflow:hidden;background:#1D1B19}
+.founder-vis img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;object-position:50% 18%;transition:transform 1.4s cubic-bezier(.2,.8,.2,1),opacity .9s}
+.founder-vis.arm img{transform:scale(1.08);opacity:0}
+.founder-vis.arm.in img{transform:none;opacity:1}
+.f-chip{position:absolute;right:18px;top:24px;padding:10px 14px;border-radius:12px;background:#fff;box-shadow:0 12px 26px rgba(25,25,25,.14);text-align:center}
+.f-chip b{display:block;font:800 26px/1 var(--fh);color:var(--red)}
+.f-chip span{font-size:11.5px;font-weight:600;color:var(--mute)}
+.f-chip.b{right:auto;left:18px;top:auto;bottom:24px;z-index:2}
+
+/* ---------- calculator ---------- */
+.calc{margin-top:36px;display:flex;flex-wrap:wrap;gap:18px}
+.calc-in{flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:10px}
+.tier{display:flex;justify-content:space-between;align-items:center;min-height:68px;padding:0 22px;border-radius:12px;border:2px solid var(--line);background:#fff;font:700 18px/1 var(--fh);text-align:left;cursor:pointer;transition:border-color .25s,background .25s,color .25s,transform .2s}
+.tier:hover{border-color:var(--red)}
+.tier small{font:700 13px/1 var(--fb);color:var(--mute)}
+.tier[aria-pressed="true"]{background:linear-gradient(180deg,#E8472F,var(--red) 55%,var(--red2));border-color:var(--red);color:#fff}
+.tier[aria-pressed="true"] small{color:#FFE3DD}
+.calc-out{flex:1.9 1 520px;min-width:0;padding:clamp(22px,3.4vw,40px);display:flex;flex-direction:column;gap:22px;container-type:inline-size}
+.cap{font:700 12px/1.3 var(--fb);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.res-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:18px 28px}
+.res-grid>div{min-width:0}
+.big{margin-top:6px;font:700 clamp(30px,4.2vw,56px)/1 var(--fh);font-size:clamp(30px,8.4cqi,56px);letter-spacing:-.04em;white-space:nowrap;font-variant-numeric:tabular-nums}
+@container (max-width:560px){.big{font-size:clamp(30px,15cqi,56px)}}
+.big.red{color:var(--red)}
+.chart{position:relative;height:170px;margin-left:24px;border-bottom:1.5px solid var(--line)}
+.chart .gl{position:absolute;left:0;right:0;border-top:1px dashed var(--line)}
+.chart .yl{position:absolute;left:-24px;font-size:11px;color:var(--mute);font-variant-numeric:tabular-nums}
+.bars{position:absolute;inset:0;display:flex}
+.bars button{flex:1;position:relative;border:none;background:transparent;padding:0;cursor:pointer}
+.bars .b{position:absolute;left:24%;right:24%;border-radius:8px;background:#E9E3DE;transition:background .3s,box-shadow .3s}
+.bars button[aria-pressed="true"] .b{background:linear-gradient(180deg,#F05B42,var(--red2));box-shadow:0 10px 22px rgba(214,48,28,.35)}
+.xl{display:flex;margin:8px 0 0 24px}
+.xl span{flex:1;text-align:center;font-size:12px;font-weight:600;color:var(--mute)}
+.calc-foot{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px dashed var(--line)}
+.calc-foot p{margin:0;flex:1 1 220px;font-size:14.5px;color:var(--mute)}
+
+/* ---------- lead magnet ---------- */
+.lead{display:flex;flex-wrap:wrap;gap:clamp(24px,4vw,56px);align-items:center}
+.books{flex:1 1 360px;min-width:0;position:relative;min-height:380px}
+.bk{position:absolute;border-radius:6px 12px 12px 6px;box-shadow:24px 30px 50px rgba(25,25,25,.22)}
+.bk.a{width:230px;height:310px;left:12%;top:30px;background:linear-gradient(135deg,#E8472F,var(--red2));transform:rotate(-12deg);color:#fff;padding:26px 22px 22px 30px;display:flex;flex-direction:column;justify-content:space-between;animation:flt 6s ease-in-out infinite}
+.bk.a::before{content:"";position:absolute;left:10px;top:0;bottom:0;width:2px;background:rgba(255,255,255,.25)}
+.bk.a .t{font:700 19px/1.18 var(--fh);overflow-wrap:break-word}
+.bk.a .t small{display:block;margin-bottom:6px;font:600 11px/1.2 var(--fb);letter-spacing:.12em;text-transform:uppercase;color:#FFE3DD}
+.bk.a .l{font-size:12px;line-height:1.8;color:#FFE3DD}
+.bk.b{width:250px;height:330px;left:40%;top:10px;background:#fff;transform:rotate(8deg);padding:24px;animation:flt 7s ease-in-out -2s infinite}
+.bk.b i{display:block;height:8px;border-radius:4px;background:#EEE9E5;margin-top:12px}
+.bk.b i.r{background:var(--redsoft);width:60%}
+.bk.b .ph{height:110px;border-radius:8px;margin-top:16px;background:url(img/greystone.jpg) center 30%/cover}
+@keyframes flt{0%,100%{translate:0 0}50%{translate:0 -12px}}
+.pen{position:absolute;left:66%;top:250px;width:150px;height:14px;border-radius:7px;background:linear-gradient(90deg,#191919 0 70%,#C9C2B8 70% 74%,#191919 74% 92%,var(--red) 92%);transform:rotate(-28deg);box-shadow:8px 14px 18px rgba(25,25,25,.2)}
+.lead-form{flex:1 1 380px;min-width:0;padding:clamp(28px,3.5vw,40px);display:flex;flex-direction:column;gap:12px;text-align:center}
+.lead-form h3{margin:0;font:700 clamp(20px,2.2vw,26px)/1.25 var(--fh);color:var(--red)}
+.lead-form>p{margin:0 0 6px;color:var(--ink2);font-size:16px}
+@media (max-width:560px){.books{min-height:330px}.bk.a{left:2%;width:190px;height:260px}.bk.b{left:34%;width:200px;height:270px}.pen{display:none}}
+
+/* ---------- FAQ ---------- */
+.faq-head{display:flex;justify-content:center;align-items:center;gap:clamp(12px,3vw,36px);flex-wrap:wrap}
+.faq-tag{font:800 clamp(30px,4vw,48px)/1 var(--fh);color:var(--red);transform:rotate(-8deg);display:inline-block}
+.qmark{width:clamp(70px,9vw,110px);animation:qbob 4s ease-in-out infinite}
+@keyframes qbob{0%,100%{transform:rotate(10deg) translateY(0)}50%{transform:rotate(16deg) translateY(-10px)}}
+.faq-wrap{margin-top:34px;display:flex;flex-wrap:wrap;gap:22px;align-items:flex-start}
+.faq{flex:1.4 1 460px;min-width:0;display:flex;flex-direction:column;gap:10px}
+.qa{background:#fff;border-radius:12px;box-shadow:0 6px 18px rgba(25,25,25,.06);overflow:hidden}
+.qa button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:62px;padding:12px 20px;border:none;background:transparent;font:600 16px/1.4 var(--fb);text-align:left;cursor:pointer}
+.qa .pm{flex:0 0 22px;color:var(--red);transition:transform .3s}
+.qa.open .pm{transform:rotate(45deg)}
+.qa p{margin:0;padding:0 20px 18px;color:var(--ink2);font-size:16px;line-height:1.7;animation:pop .35s ease both}
+.side-form{flex:1 1 320px;min-width:0;padding:30px 26px 26px;display:flex;flex-direction:column;gap:12px;text-align:center}
+.side-form h3{margin:0;font:700 19px/1.3 var(--fh);color:var(--red)}
+.side-form>p{margin:0 0 4px;font-size:15px;color:var(--ink2)}
+
+/* ---------- telegram ---------- */
+.tg{display:flex;flex-wrap:wrap;gap:24px;align-items:center;padding:clamp(26px,4vw,44px);overflow:hidden}
+.tg .t{flex:1 1 340px;min-width:0}
+.tg h3{margin:0;font:700 clamp(20px,2.4vw,28px)/1.3 var(--fh)}
+.tg p{margin:12px 0 22px;color:var(--ink2);max-width:46ch}
+.phone-m{flex:0 0 auto;width:min(270px,100%);margin:0 auto -110px;border-radius:40px;background:#191919;padding:9px;box-shadow:0 30px 60px rgba(25,25,25,.25);transform:rotate(6deg)}
+.phone-m .scr{border-radius:32px;background:#EDE9E4;overflow:hidden;min-height:420px}
+.phone-m .hd{display:flex;align-items:center;gap:10px;padding:14px 14px 10px;background:#fff;border-bottom:1px solid var(--line)}
+.phone-m .hd img{width:34px;height:34px;border-radius:50%;object-fit:cover;object-position:50% 15%}
+.phone-m .hd b{display:block;font-size:13.5px}.phone-m .hd span{font-size:11px;color:var(--mute)}
+.msgs{padding:14px 12px;display:flex;flex-direction:column;gap:10px}
+.msg{max-width:88%;padding:10px 12px;border-radius:16px 16px 16px 4px;background:#fff;font-size:13.5px;line-height:1.45}
+.tg.arm .msg{opacity:0;transform:translateY(10px)}
+.msg.me{align-self:flex-end;border-radius:16px 16px 4px 16px;background:var(--redsoft)}
+.msg small{display:block;text-align:right;font-size:10px;color:var(--mute)}
+.tg.arm.in .msg{animation:msgin .5s cubic-bezier(.2,.8,.2,1) forwards}
+.tg.arm.in .msg:nth-child(2){animation-delay:.9s}.tg.arm.in .msg:nth-child(3){animation-delay:1.8s}
+@keyframes msgin{to{opacity:1;transform:none}}
+
+/* ---------- collage ---------- */
+@keyframes blink{50%{opacity:0}}
+
+/* ---------- formats ---------- */
+.intro{position:relative;max-width:560px;margin:22px auto 0;padding:18px 24px;border:1.5px dashed var(--red);border-radius:12px;text-align:center;font-size:14.5px;color:var(--ink2);background:rgba(255,255,255,.7)}
+.fgrid{margin-top:30px;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:16px}
+/* фото-картка: фото страви, затемнення, назва великими літерами по центру */
+.fc{position:relative;isolation:isolate;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;aspect-ratio:1/1;padding:20px 16px;border-radius:16px;overflow:hidden;text-align:center;color:#fff;background:radial-gradient(120% 95% at 50% 15%,#43332A 0%,#1C1613 72%);box-shadow:0 10px 26px rgba(25,25,25,.12);transition:transform .3s,box-shadow .3s}
+.fc-img,.oimg{position:absolute;inset:0;z-index:-2;background:var(--food,none) center/cover no-repeat;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.fc::after,.opt.ph::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(15,11,9,.2) 0%,rgba(15,11,9,.32) 50%,rgba(15,11,9,.55) 100%);transition:background .35s}
+.fc:hover{transform:translateY(-5px);box-shadow:0 22px 40px rgba(25,25,25,.22)}
+.fc:hover .fc-img,.opt.ph:hover .oimg{transform:scale(1.07)}
+.fc:hover::after{background:linear-gradient(180deg,rgba(15,11,9,.25) 0%,rgba(15,11,9,.42) 50%,rgba(150,30,14,.7) 100%)}
+/* назва формату на матовій підкладці */
+.fc h3,.opt.ph span{margin:0;max-width:100%;padding:9px 18px;border-radius:20px;border:1px solid rgba(255,255,255,.5);background:rgba(255,255,255,.14);-webkit-backdrop-filter:blur(10px) saturate(1.3);backdrop-filter:blur(10px) saturate(1.3);box-shadow:0 6px 18px rgba(0,0,0,.18);font:700 clamp(15px,1.45vw,18px)/1.2 var(--fh);letter-spacing:.04em;text-transform:uppercase;text-wrap:balance;overflow-wrap:break-word;text-shadow:0 1px 8px rgba(0,0,0,.35)}
+.fc .go{position:absolute;right:14px;bottom:14px;width:38px;height:38px;border-radius:50%;border:0;background:#fff;color:var(--red);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s,color .2s}
+.fc .go:hover,.fc:hover .go{background:var(--red);color:#fff}
+@media (max-width:620px){.fgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.fc{padding:12px 8px;gap:8px}.fc h3{font-size:min(12.5px,3.2vw);letter-spacing:.02em;padding:7px 12px;overflow-wrap:normal}.fc .go{width:32px;height:32px;right:10px;bottom:10px}}
+
+/* ---------- included grid (dashed cells) ---------- */
+.inc{margin-top:34px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.25fr);border:2px dashed var(--red);border-radius:18px;background:rgba(255,255,255,.75);overflow:hidden}
+.ic{position:relative;padding:22px;border-right:2px dashed rgba(214,48,28,.55);border-bottom:2px dashed rgba(214,48,28,.55);display:flex;flex-direction:column;gap:6px;min-width:0}
+.ic h3{margin:0;font:700 17px/1.3 var(--fh)}
+.ic p{margin:0;font-size:15px;color:var(--mute)}
+.ic.plan{grid-column:span 2}
+.plan-v{position:relative;margin-top:14px;aspect-ratio:16/9;max-width:100%;border-radius:12px;overflow:hidden;background:#2A2420}
+.plan-v video{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover}
+.plan-tag{position:absolute;left:12px;bottom:12px;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.94);color:var(--ink);font:700 12px/1.2 var(--fb);box-shadow:0 6px 16px rgba(0,0,0,.18)}
+.ic.vid{grid-row:span 2;border-right:none}
+.ic-v{position:relative;margin-top:12px;flex:1 1 0;min-height:300px;border-radius:12px;overflow:hidden;background:#E9E6E2}
+.ic.vid video{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover}
+.ic-rec{position:absolute;left:10px;top:10px;display:inline-flex;align-items:center;gap:7px;padding:6px 11px;border-radius:999px;background:#fff;color:var(--ink);box-shadow:0 6px 14px rgba(0,0,0,.15);font:700 12px/1 var(--fb)}
+.ic-rec i{width:7px;height:7px;border-radius:50%;background:var(--red);animation:blink 1.2s steps(2) infinite}
+.ic-list{margin:14px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.ic-list li{display:flex;align-items:center;gap:10px;font-size:14.5px;font-weight:600;color:var(--ink)}
+.ic-list i{flex:none;display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--red);color:#fff}
+.ic-ph{margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ic-ph figure{position:relative;margin:0;aspect-ratio:1/1;max-width:100%;border-radius:12px;overflow:hidden;background:#eee}
+.ic-ph img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.ic-ph figure:hover img{transform:scale(1.07)}
+.ic-ph figcaption{position:absolute;left:8px;bottom:8px;padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.5);background:rgba(255,255,255,.18);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#fff;font:700 11.5px/1.2 var(--fb)}
+.ic.more{grid-column:1/-1;border-right:none;border-bottom:none;flex-direction:row;flex-wrap:wrap;align-items:center;gap:18px 28px}
+.ic.more .t{flex:1 1 280px}
+.ic.more h3{font-size:20px;color:var(--red)}
+.ic.more form{flex:2 1 420px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.ic.more .fld{flex:1 1 170px}
+.ic .row2{display:flex;gap:16px;align-items:flex-end;justify-content:space-between;margin-top:auto}
+.people{width:100%;max-width:220px;margin:10px auto 0}
+@media (max-width:860px){.inc{grid-template-columns:1fr}.ic,.ic.plan,.ic.vid{grid-column:auto;grid-row:auto;border-right:none}.ic-v{flex:none;aspect-ratio:4/4.4}.ic-ph figure{aspect-ratio:4/3.4}}
+
+/* ---------- locations with 3D pins ---------- */
+.locs{margin-top:34px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:18px;max-width:900px;margin-inline:auto}
+.loc{text-align:center;display:flex;flex-direction:column;align-items:center}
+.loc .pt{display:inline-flex;flex-direction:column;align-items:center;gap:4px;font-size:13px;font-weight:700;margin-bottom:10px}
+.loc .pt i{width:12px;height:12px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#FF9A86,var(--red) 50%,var(--red2));box-shadow:0 3px 6px rgba(168,24,10,.35)}
+.loc .bx{align-self:stretch;flex:1;display:flex;flex-direction:column;border:3px solid var(--red);border-radius:12px;overflow:hidden;background:var(--red);box-shadow:0 14px 30px rgba(214,48,28,.2);transition:transform .3s}
+.loc .bx:hover{transform:translateY(-6px) rotate(-1deg)}
+.loc .bx img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.loc .bt{display:flex;gap:10px;align-items:center;padding:10px 12px;color:#fff;text-align:left;font-size:13.5px;line-height:1.35}
+.loc .bt b{display:block;font-size:15px}
+.loc .lk{margin-top:auto;display:flex;flex-wrap:wrap;gap:8px;padding:0 12px 12px}
+.loc .lk a{flex:1 1 auto;display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:38px;padding:0 12px;border-radius:999px;background:#fff;color:var(--red);font:700 12.5px/1 var(--fb);text-decoration:none;transition:background .2s,color .2s}
+.loc .lk a:hover{background:var(--ink);color:#fff}
+.loc .lk a:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.pin3d{position:absolute;width:clamp(90px,12vw,170px);pointer-events:none;filter:drop-shadow(0 26px 22px rgba(168,24,10,.28))}
+.pin3d.l{left:max(1%,calc(50% - 720px));top:20%;transform:rotate(-14deg);animation:pinf 5s ease-in-out infinite}
+.pin3d.r{right:max(1%,calc(50% - 720px));top:34%;transform:rotate(16deg) scale(.9);animation:pinf 6s ease-in-out -2s infinite}
+@keyframes pinf{0%,100%{translate:0 0}50%{translate:0 -16px}}
+@media (max-width:1100px){.pin3d{display:none}}
+
+/* ---------- steps ---------- */
+.steps{margin-top:40px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:40px 18px;position:relative}
+.step{position:relative;text-align:center;padding:0 6px}
+.step .n{position:relative;z-index:1;margin:0 auto 14px;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font:700 18px/1 var(--fh);color:#fff;background:radial-gradient(circle at 34% 30%,#FF8A73,var(--red) 50%,var(--red2));box-shadow:0 10px 20px rgba(214,48,28,.3)}
+.step h3{margin:0;font:700 16px/1.3 var(--fh)}
+.step p{margin:8px auto 0;max-width:30ch;font-size:15px;color:var(--mute)}
+.step::before{content:"";position:absolute;top:29px;left:calc(50% + 34px);right:calc(-50% + 11px);border-top:2px dashed var(--red);opacity:.55;transform-origin:0 50%}
+.step:nth-child(4n)::before,.step:last-child::before{display:none}
+/* етапи з'являються по черзі: цифра, підпис, пунктир до наступної */
+.steps.arm .step{opacity:0;transform:translateY(18px);transition:opacity .45s ease,transform .55s cubic-bezier(.2,.8,.2,1)}
+.steps.arm .step .n{transform:scale(.3);transition:transform .5s cubic-bezier(.3,1.6,.5,1)}
+.steps.arm .step::before{transform:scaleX(0);transition:transform .4s ease}
+.steps.arm .step.in::before{transition-delay:.2s}
+.steps.arm .step.in{opacity:1;transform:none}
+.steps.arm .step.in .n{transform:none}
+.steps.arm .step.in::before{transform:scaleX(1)}
+@media (max-width:860px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.step:nth-child(2n)::before{display:none}.step:nth-child(4n+1)::before,.step:nth-child(4n+3)::before{display:block}}
+@media (max-width:460px){.steps{grid-template-columns:1fr}.step::before{display:none!important}}
+.sup-card{margin-top:44px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:16px 36px;align-items:center;padding:clamp(22px,3vw,34px) clamp(22px,3.4vw,40px);border-radius:20px;background:linear-gradient(160deg,#E8472F 0%,var(--red) 50%,var(--red2) 100%);color:#fff;box-shadow:0 20px 40px rgba(214,48,28,.28)}
+.sc-k{font:700 12px/1.2 var(--fb);letter-spacing:.14em;text-transform:uppercase;color:#FFE3DD}
+.sc-l h3{margin:8px 0 0;font:700 clamp(22px,2.5vw,30px)/1.15 var(--fh)}
+.sc-l h3 big{font-size:1.45em;line-height:.9;vertical-align:-.06em}
+.sc-l p{margin:10px 0 0;font-size:15px;color:#FFE3DD}
+.sc-r{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 22px}
+.sc-r li{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:600}
+.sc-r i{flex:none;display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#fff;color:var(--red)}
+.sup-k{margin:24px 0 0;text-align:center;font:700 clamp(16px,1.8vw,20px)/1.3 var(--fh)}
+.sup-k span{color:var(--red)}
+@media (max-width:760px){.sup-card{grid-template-columns:1fr}.sc-r{grid-template-columns:1fr}}
+
+/* ---------- screen (pre-opening promo) ---------- */
+.screen{position:relative;max-width:920px;margin:0 auto;padding:22px 26px 0}
+.screen .rod{height:16px;border-radius:8px;background:linear-gradient(180deg,#F4F2EF,#C9C4BE);box-shadow:0 6px 12px rgba(0,0,0,.12)}
+.screen .cv{margin:0 18px;background:#191919;padding:14px;border-radius:0 0 6px 6px;box-shadow:0 30px 50px rgba(25,25,25,.25);transform-origin:50% 0;transition:transform 1.2s cubic-bezier(.3,1.1,.4,1)}
+.screen.arm .cv{transform:scaleY(.02)}
+.screen.arm.in .cv{transform:none}
+.screen .in-c{background:#fff;padding:clamp(22px,4vw,44px);display:flex;flex-wrap:wrap;gap:24px;align-items:center}
+.screen .t{flex:1.3 1 320px;min-width:0}
+.screen h3{margin:0;font:700 clamp(19px,2.2vw,26px)/1.3 var(--fh)}
+.screen ul{margin:16px 0 22px;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:10px 18px}
+.screen li{display:flex;gap:10px;align-items:flex-start;font-size:15px;font-weight:600;color:var(--ink2)}
+.screen li svg{flex:0 0 22px;color:var(--red)}
+.screen .circle{flex:1 1 220px;max-width:260px;margin:0 auto;aspect-ratio:1;border-radius:50%;padding:8px;border:2px dashed var(--red)}
+.screen .circle img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:50% 30%}
+
+/* ---------- support ---------- */
+
+/* ---------- final ---------- */
+.final{max-width:900px;margin:0 auto;padding:clamp(34px,4.5vw,52px) clamp(20px,10vw,150px);text-align:center}
+.final h2{margin:0;font:700 clamp(24px,3vw,36px)/1.2 var(--fh);color:var(--red)}
+.final p{margin:10px 0 20px;color:var(--ink2)}
+.final form{display:flex;flex-direction:column;gap:12px;max-width:480px;margin:0 auto}
+.bell{position:absolute;top:50%;width:clamp(70px,9vw,120px);margin-top:-60px;transform-origin:50% 8%;animation:ring 4s ease-in-out infinite}
+.bell.l{left:clamp(14px,3vw,36px)}.bell.r{right:clamp(14px,3vw,36px);animation-delay:-2s}
+@keyframes ring{0%,62%,100%{transform:rotate(0)}66%{transform:rotate(14deg)}70%{transform:rotate(-12deg)}74%{transform:rotate(9deg)}78%{transform:rotate(-6deg)}82%{transform:rotate(3deg)}}
+@media (max-width:700px){.bell{display:none}}
+
+/* footer */
+.foot{background:linear-gradient(160deg,#E33E28 0%,var(--red) 45%,var(--red2) 100%);color:#fff;padding-block:40px}
+.foot .wrap{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center}
+.foot .logo{color:#fff}
+.foot p{margin:0;font-size:14px;color:#FFE3DD}
+.foot-docs{flex-basis:100%;display:flex;flex-wrap:wrap;gap:8px 22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.25)}
+.foot-docs a{color:#fff;font-size:14px;text-decoration:underline;text-decoration-color:rgba(255,255,255,.5);text-underline-offset:3px}
+.foot-docs a:hover{text-decoration-color:#fff}
+
+/* fab + modal */
+.fab{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:50;display:flex;align-items:center;gap:10px;min-height:58px;padding:0 20px 0 8px;border-radius:999px;border:none;background:linear-gradient(180deg,#E8472F,var(--red) 55%,var(--red2));color:#fff;font:700 13.5px/1.25 var(--fb);text-align:left;cursor:pointer;box-shadow:0 0 0 2px #fff,0 14px 34px rgba(214,48,28,.4);animation:nudge 6s ease-in-out infinite}
+.fab .m{width:44px;height:44px;border-radius:50%;display:flex}
+@keyframes nudge{0%,86%,100%{transform:rotate(0)}89%{transform:rotate(-5deg)}92%{transform:rotate(5deg)}95%{transform:rotate(-2deg)}}
+@media (max-width:520px){.fab .txt{display:none}.fab{padding:0 7px}}
+.modal{position:fixed;inset:0;z-index:100;background:rgba(25,25,25,.55);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));animation:fade .3s ease-out}
+.dialog{width:100%;max-width:940px;max-height:100%;overflow-y:auto;background:#fff;border-radius:22px;box-shadow:0 40px 90px rgba(25,25,25,.35);animation:mpop .5s cubic-bezier(.2,.8,.2,1)}
+.doc-modal{z-index:115}
+.doc-dlg{max-width:820px}
+.doc-body{padding:clamp(22px,4vw,44px);color:var(--ink2);font-size:15.5px;line-height:1.7}
+.doc-h{margin:0;font:700 clamp(24px,2.8vw,32px)/1.2 var(--fh);color:var(--ink)}
+.doc-ed{margin:6px 0 22px;font-size:13.5px;color:var(--mute)}
+.doc-body h3{margin:26px 0 8px;font:700 17px/1.3 var(--fh);color:var(--red)}
+.doc-body p{margin:0 0 10px;max-width:70ch}
+.doc-body ul{margin:4px 0 12px;padding-left:20px;max-width:68ch}
+.doc-body li{margin:4px 0}
+.doc-body li::marker{color:var(--red)}
+.doc-body a{color:var(--red)}
+.fill{padding:1px 5px;border-radius:5px;background:#FFF2C2;color:var(--ink);font-weight:600}
+.dlg-head{display:flex;align-items:center;gap:14px;padding:16px clamp(16px,3vw,30px);background:#F1F0EE}
+.dlg-head p{flex:1;margin:0;font-size:15px;line-height:1.45;color:var(--ink2)}
+.dlg-head p svg{vertical-align:-4px;margin-right:6px;color:var(--red)}
+.dlg-head .st{font:700 15px/1 var(--fh);white-space:nowrap}
+.x{width:42px;height:42px;flex:0 0 42px;border-radius:50%;border:none;background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.prog{height:4px;background:#E7E3DF}
+.prog i{display:block;height:4px;background:var(--red);transition:width .5s ease}
+.dlg-body{padding:clamp(22px,4vw,40px)}
+.dlg-body h3{margin:0;font:700 clamp(20px,2.4vw,28px)/1.25 var(--fh)}
+.opts{margin-top:24px;display:grid;gap:12px}
+.opt{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:8px;min-height:76px;padding:14px 16px;border-radius:12px;border:2px solid var(--line);background:#fff;font:700 15px/1.3 var(--fb);text-align:left;cursor:pointer;transition:border-color .2s,background .2s,transform .2s}
+.opt:hover{border-color:var(--red);transform:translateY(-2px)}
+.opt.ph{position:relative;isolation:isolate;overflow:hidden;min-height:150px;align-items:center;justify-content:center;padding:16px 12px;border:3px solid transparent;text-align:center;color:#fff;background:radial-gradient(120% 95% at 50% 15%,#43332A 0%,#1C1613 72%)}
+.opt.ph span{font-size:clamp(12.5px,1.25vw,15px);padding:8px 14px}
+.opt.ph:hover{border-color:transparent;box-shadow:0 14px 28px rgba(25,25,25,.22)}
+.opt.ph[aria-pressed="true"]{border-color:var(--red);background:radial-gradient(120% 95% at 50% 15%,#43332A 0%,#1C1613 72%)}
+.opt.ph[aria-pressed="true"]::after{background:linear-gradient(180deg,rgba(214,48,28,.35),rgba(110,18,8,.75))}
+@media (max-width:560px){.opts.ph-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px}.opt.ph{min-height:120px;padding:12px 8px}.opt.ph span{font-size:min(11.5px,3vw);letter-spacing:.02em;padding:6px 10px;overflow-wrap:normal}}
+.opt[aria-pressed="true"]{border-color:var(--red);background:var(--redsoft)}
+.dlg-nav{margin-top:28px;display:flex;justify-content:space-between;gap:12px}
+.dlg-nav .btn:disabled{opacity:.35;cursor:default;transform:none}
+.res-card{border:2px dashed var(--red);border-radius:14px;padding:18px 20px}
+.res-card .two{margin-top:12px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:14px}
+.res-card .two>div{min-width:0}
+.res-card small{font-size:12px;color:var(--mute);font-weight:600}
+.res-card b{display:block;margin-top:4px;font:700 clamp(18px,2.1vw,24px)/1.15 var(--fh);color:var(--red);overflow-wrap:anywhere}
+.res-card .two>div+div b{color:var(--ink)}
+.dlg-form{display:flex;flex-wrap:wrap;gap:28px;align-items:center}
+.dlg-form>div:first-child{flex:1 1 400px;min-width:0}
+.dlg-form h4{margin:20px 0 0;font:700 clamp(18px,2vw,22px)/1.3 var(--fh)}
+.dlg-form form{margin-top:14px;display:flex;flex-direction:column;gap:10px}
+/* вибір, як зв'язатися */
+.ways{margin:0;padding:0;border:0;min-width:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.ways legend{padding:0;margin-bottom:8px;font:700 13px/1.3 var(--fb);color:var(--ink2)}
+.way{position:relative;cursor:pointer;min-width:0}
+.way input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer}
+.way span{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-height:64px;padding:8px 4px;border-radius:12px;border:1.5px solid transparent;background:var(--field);font:700 12.5px/1.1 var(--fb);color:var(--ink);text-align:center;transition:background .2s,color .2s,border-color .2s,box-shadow .2s}
+.way svg{width:21px;height:21px;flex:none}
+.way:hover span{border-color:var(--red)}
+.way input:checked+span{background:var(--red);border-color:var(--red);color:#fff;box-shadow:0 8px 18px rgba(214,48,28,.28)}
+.way input:focus-visible+span{outline:2px solid var(--red);outline-offset:2px}
+.way-hint{margin:0;display:flex;align-items:center;gap:7px;font-size:13.5px;line-height:1.4;color:var(--mute)}
+.way-hint::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:#2DB760}
+@media (max-width:420px){.ways{gap:6px}.way span{min-height:58px;font-size:11.5px}}
+@media (max-width:560px){.fields{grid-template-columns:1fr}}
+@media (max-width:700px){.dlg-form .books{display:none}}
+.dlg-thanks{padding:clamp(40px,6vw,64px) 24px;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
+.dlg-thanks p{margin:0;max-width:440px;color:var(--ink2)}
+
+/* motion basics */
+@keyframes fade{from{opacity:0}}
+@keyframes mpop{from{opacity:0;transform:translateY(28px) scale(.97)}}
+@keyframes pop{from{opacity:0;transform:translateY(10px)}}
+@keyframes rise{from{opacity:0;transform:translateY(26px)}}
+.up{animation:rise .9s cubic-bezier(.2,.8,.2,1) both}.d1{animation-delay:.1s}.d2{animation-delay:.22s}.d3{animation-delay:.34s}.d4{animation-delay:.46s}
+@keyframes rvin{from{opacity:.45;transform:translateY(40px)}to{opacity:1;transform:none}}
+@supports (animation-timeline: view()){.rv{animation:rvin linear both;animation-timeline:view();animation-range:entry 0% entry 30%}}
+
+.replay2{position:absolute;right:16px;top:16px;display:inline-flex;align-items:center;gap:6px;min-height:34px;padding:0 12px;border-radius:8px;border:1.5px solid var(--line);background:#fff;font-size:12px;font-weight:700;cursor:pointer}
+.replay2:hover{border-color:var(--red);color:var(--red)}
+
+/* ---------- заставка: червоний екран, логотип, «дощ» з їжі вгору ---------- */
+.pl{display:none}
+html.pl-on{overflow:hidden}
+html.pl-on .pl,.pl.go{display:block}
+html.pl-on .up{animation-play-state:paused}
+html.pl-on .fab{opacity:0;visibility:hidden}
+.pl{position:fixed;inset:0;z-index:120;color:#fff;background:radial-gradient(120% 90% at 50% 42%,#E03A24 0%,#D6301C 45%,#B4200E 100%);cursor:pointer;will-change:transform}
+.pl::after{content:"";position:absolute;left:-15%;right:-15%;top:calc(100% - 1px);height:22vh;border-radius:0 0 50% 50%/0 0 100% 100%;background:#B4200E}
+.pl.go{transform:translateY(calc(-100% - 23vh));transition:transform 1.9s cubic-bezier(.62,0,.36,1) .1s}
+.pl-rain{position:absolute;inset:0;overflow:visible;pointer-events:none}
+.pf{position:absolute;top:100%;width:var(--s);height:var(--s);margin-left:calc(var(--s) / -2);opacity:0;will-change:transform,opacity}
+.pl-c{position:absolute;left:50%;top:50%;display:flex;flex-direction:column;align-items:center;gap:22px;transform:translate(-50%,-54%);transition:transform 1.1s cubic-bezier(.5,0,.3,1),opacity .9s,filter .9s}
+.pl.out .pl-c{transform:translate(-50%,-80%) scale(.94);opacity:0;filter:blur(6px)}
+.pl-logo{position:relative;width:150px;height:150px;display:grid;place-items:center}
+.pl-ring{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
+.pl-ring circle{fill:none;stroke:#fff;stroke-width:1.6;stroke-dasharray:452;stroke-dashoffset:452;animation:plring 1.1s cubic-bezier(.6,0,.2,1) .15s forwards}
+.pl-mark{width:94px;height:auto;opacity:0;transform:scale(.8) translateY(6px);animation:plmark .8s cubic-bezier(.2,.9,.3,1.15) .55s forwards}
+.pl-name{font:700 13px/1 var(--fb);letter-spacing:.3em;text-indent:.3em;white-space:nowrap;opacity:0;animation:plname .8s ease .85s forwards}
+.pl-bar{width:132px;height:2px;border-radius:2px;background:rgba(255,255,255,.28);overflow:hidden}
+.pl-bar i{display:block;height:100%;background:#fff;transform:scaleX(0);transform-origin:0 50%;animation:plbar 1.5s cubic-bezier(.4,0,.2,1) .4s forwards}
+@keyframes plring{to{stroke-dashoffset:0}}
+@keyframes plmark{to{opacity:1;transform:none}}
+@keyframes plname{from{opacity:0;letter-spacing:.55em}to{opacity:.95;letter-spacing:.3em}}
+@keyframes plbar{to{transform:scaleX(1)}}
+@media (max-width:560px){.pl-logo{width:124px;height:124px}.pl-mark{width:78px}.pl-name{font-size:11px;letter-spacing:.22em;text-indent:.22em}@keyframes plname{from{opacity:0;letter-spacing:.4em}to{opacity:.95;letter-spacing:.22em}}}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.trail .tm{stroke-dashoffset:0}}
+</style>
+</head>
+<body>
+<script>try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('pl-on')}catch(e){}</script>
+<div class="pl" id="pl" aria-hidden="true">
+  <svg width="0" height="0" style="position:absolute" focusable="false"><defs><symbol fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="fi-coffee" viewBox="0 0 48 48"><path d="M10 20h22v8a10 10 0 0 1-10 10h-2a10 10 0 0 1-10-10z"/><path d="M32 23h3a5 5 0 0 1 0 10h-4"/><path d="M7 43h30"/><path d="M16 6q-3 3 0 6t0 6M22 6q-3 3 0 6t0 6M28 6q-3 3 0 6t0 6"/></symbol><symbol fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="fi-pizza" viewBox="0 0 48 48"><path d="M24 43L7 11q17-9 34 0z"/><path d="M10 16q14-7 28 0"/><circle cx="21" cy="22" r="2.6"/><circle cx="28" cy="28" r="2.3"/><circle cx="20" cy="31" r="2"/></symbol><symbol fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="fi-burger" viewBox="0 0 48 48"><path d="M8 22a16 12 0 0 1 32 0z"/><path d="M19 15l1 1M26 13l1 1M31 17l1 1"/><path d="M7 27q3-3 6 0t6 0t6 0t6 0t6 0t5 0"/><path d="M8 32h32"/><path d="M9 36h30v1a5 5 0 0 1-5 5H14a5 5 0 0 1-5-5z"/></symbol><symbol fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="fi-donut" viewBox="0 0 48 48"><circle cx="24" cy="24" r="16"/><circle cx="24" cy="24" r="5"/><path d="M11 20q4-8 13-9q10 1 14 10q-4 3-7 1q-3-4-7-4q-5 0-8 5q-3 1-5-3z"/><path d="M18 14l2 2M29 14l-1 2M34 22l-2 0"/></symbol><symbol fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="fi-cupcake" viewBox="0 0 48 48"><path d="M13 27h22l-3 15H16z"/><path d="M20 27l1 15M28 27l-1 15"/><path d="M10 27q-1-8 7-10q2-6 7-6t7 6q8 2 7 10z"/><circle cx="24" cy="8" r="3"/></symbol><symbol fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="fi-icecream" viewBox="0 0 48 48"><path d="M15 23l9 21 9-21"/><path d="M18 30l10-7M20 36l8-6"/><path d="M13 23a11 11 0 0 1 22 0z"/><path d="M19 12a5 5 0 0 1 10 0"/></symbol><symbol fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="fi-croissant" viewBox="0 0 48 48"><path d="M5 31q4-15 19-17q15 2 19 17q-4 3-8 0q-3-8-11-9q-8 1-11 9q-4 3-8 0z"/><path d="M15 18l4 9M24 14v9M33 18l-4 9"/></symbol><symbol fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="fi-sushi" viewBox="0 0 48 48"><ellipse cx="24" cy="16" rx="14" ry="6"/><ellipse cx="24" cy="16" rx="6" ry="2.4"/><path d="M10 16v15a14 6 0 0 0 28 0V16"/><path d="M17 21v13M31 21v13"/></symbol><symbol fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="fi-cherry" viewBox="0 0 48 48"><circle cx="15" cy="35" r="7"/><circle cx="32" cy="37" r="6.5"/><path d="M15 28q3-12 14-19M32 30q-3-10-3-21"/><path d="M29 9q8-3 11 4q-8 2-11-4z"/></symbol><symbol fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="fi-fish" viewBox="0 0 48 48"><path d="M5 24q13-13 27 0q-14 13-27 0z"/><path d="M32 24l11-8v16z"/><circle cx="13" cy="22" r="1.4"/><path d="M20 19q2 5 0 10"/></symbol><symbol fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="fi-chef" viewBox="0 0 48 48"><path d="M14 30q-7-1-7-8t8-7q2-8 9-8t9 8q8 0 8 7t-7 8z"/><path d="M14 30h20v9H14z"/><path d="M20 30v-5M28 30v-5"/></symbol><symbol fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="fi-wine" viewBox="0 0 48 48"><path d="M15 6h18q2 16-9 18q-11-2-9-18z"/><path d="M16 13h16"/><path d="M24 24v15M17 42h14"/></symbol><symbol fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="fi-lemon" viewBox="0 0 48 48"><path d="M5 25a19 19 0 0 0 38 0z"/><path d="M10 25a14 14 0 0 0 28 0"/><path d="M24 25v13M24 25l-9 9M24 25l9 9M24 25l-12 4M24 25l12 4"/></symbol><symbol fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="fi-cutlery" viewBox="0 0 48 48"><path d="M12 5v11q0 5 5 5t5-5V5M17 5v38"/><path d="M33 5q7 6 5 19h-5v19"/></symbol><symbol fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="fi-carrot" viewBox="0 0 48 48"><path d="M32 16L9 41l2 2 26-21q3-5-5-6z"/><path d="M18 31l3 3M24 25l3 3"/><path d="M33 16q-2-7 2-10M35 17q4-6 9-5M37 20q7-1 8 3"/></symbol></defs></svg>
+  <div class="pl-rain" id="plRain"></div>
+  <div class="pl-c">
+    <div class="pl-logo"><svg class="pl-ring" viewBox="0 0 150 150"><circle cx="75" cy="75" r="72"/></svg><img class="pl-mark" src="img/buro-mark-white.svg" alt="" width="546" height="540"></div>
+    <div class="pl-name">БЮРО РЕСТОРАННИХ РІШЕНЬ</div>
+    <div class="pl-bar"><i></i></div>
+  </div>
+</div>
+
+<!-- ================= HEADER ================= -->
+<header class="site-head">
+  <div class="wrap bar">
+    <a class="logo" href="#top" aria-label="Бюро ресторанних рішень, на початок"><img class="logo-img on-light" src="img/buro-logo.svg" alt="Бюро ресторанних рішень" width="1620" height="552"><img class="logo-img on-dark" src="img/buro-logo-white.svg" alt="Бюро ресторанних рішень" width="1620" height="552"></a>
+    <nav class="nav" id="nav" aria-label="Розділи">
+      <a href="#formats">Формати</a><a href="#included">Що входить</a><a href="#chef">Про шефа</a><a href="#places">Заклади</a><a href="#price">Вартість</a><a href="#faq">FAQ</a>
+    </nav>
+    <div class="head-r">
+      <div class="phone">[+380 XX XXX XX XX]<small>щодня з 9:00 до 21:00</small></div>
+      <button class="btn btn-red head-cta" type="button" data-quiz style="min-height:44px;padding:0 18px;font-size:13px">Прорахунок</button>
+      <button class="burger" id="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="nav"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<!-- ================= HERO ================= -->
+<section class="hero" id="tl">
+  <div class="hero-media">
+    <video class="hero-v" id="tlVideo" src="media/hero-video.mp4" poster="img/stage-1.webp" muted playsinline preload="auto" aria-label="Таймлапс: порожнє приміщення за 5 секунд перетворюється на готовий заклад"></video>
+    <div class="hero-chips up d3">
+      <div class="hero-badge"><img src="img/chef-portrait.jpg" alt="" width="44" height="44"><div><b>Шеф Дмитро</b><span>бренд-шеф · 20+ запусків</span></div></div>
+      <button class="tl-top" id="tlReplay" type="button" aria-label="Переглянути таймлапс ще раз"><span class="tl-dot" aria-hidden="true"></span><span class="tl-cap">Від бетону до відкриття</span><span class="tl-btn" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></span></button>
+    </div>
+  </div>
+  <div class="hero-stamp up d2" aria-hidden="true"><svg viewBox="0 0 120 120"><defs><path id="cp" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0"/></defs><circle cx="60" cy="60" r="58" fill="#fff"/><text font-family="Montserrat,Arial,sans-serif" font-weight="800" font-size="9.6" letter-spacing="1.6" fill="#191919"><textPath href="#cp">БЕЗ ФРАНШИЗИ · БЕЗ РОЯЛТІ · </textPath></text></svg><b>0%</b></div>
+  <div class="wrap hero-in">
+    <div class="hero-text">
+        <span class="tagline up">Від ідеї до власного закладу</span>
+        <h1 class="h1 up">Відкрийте <em>свій заклад</em> під ключ без франшизи й роялті</h1>
+        <p class="hero-lead up d1">Кафе, кав'ярня, піцерія чи стрітфуд за 1,5–3 місяці. Отримайте прорахунок свого закладу зручним способом:</p>
+        <form class="hero-form up d2" id="heroForm" novalidate data-source="hero">
+          <div class="fields">
+            <label class="fld"><span class="sr">Ім'я</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg><input id="h-name" name="name" type="text" required autocomplete="name" placeholder="Ваше ім'я"></label>
+            <label class="fld"><span class="sr">Телефон</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><input id="h-phone" name="phone" type="tel" required autocomplete="tel" placeholder="+380"></label>
+            <label class="fld"><span class="sr">Як зв'язатися</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-12 7l-5 1 1-4A8 8 0 1 1 21 12z"/></svg><select id="h-way" name="way"><option>Telegram</option><option>Viber</option><option>WhatsApp</option><option>Дзвінок</option></select></label>
+          </div>
+          <label class="consent"><input type="checkbox" name="agree" required checked><span>Погоджуюсь з обробкою персональних даних згідно з <a href="#privacy" data-doc="privacy">політикою конфіденційності</a></span></label>
+          <button class="btn btn-red" type="submit">Отримати прорахунок <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </form>
+      </div>
+  </div>
+</section>
+<div class="wrap hero-stats">
+  <div class="card stats up d3">
+    <div class="stat"><span>Запуск під ключ<sup>*</sup></span><b>від $2 800</b></div>
+    <div class="stat"><span>Інвестиції<sup>*</sup></span><b>від $10 000</b></div>
+    <div class="stat"><span>Час на запуск<sup>*</sup></span><b>1,5–3 міс.</b></div>
+    <div class="stat"><span>Відкритих закладів</span><b data-count="20" data-suffix="+">20+</b></div>
+    <div class="stat"><span>Супровід</span><b>1 місяць</b></div>
+  </div>
+</div>
+
+<!-- ================= FORMATS ================= -->
+<section id="formats">
+  <div class="wrap">
+    <h2 class="h2 center rv">Формати, які ми <em>відкриваємо</em></h2>
+    <div class="intro rv"><span class="pinball" aria-hidden="true" style="width:18px;height:18px;margin-left:-9px;top:-10px"></span>Від острівця кави в ТЦ до ресторану з баром. Під кожен формат рахуємо окупність, пишемо меню й техкарти, підбираємо обладнання.</div>
+    <div class="fgrid" id="fgrid"></div>
+  </div>
+</section>
+
+<!-- ================= INCLUDED ================= -->
+<section id="included">
+  <div class="wrap">
+    <h2 class="h2 center rv">Ви купуєте не вивіску, <em>а готовий заклад</em></h2>
+    <p class="sub center rv">Ось що отримує кожен наш клієнт</p>
+    <div class="inc rv">
+      <div class="ic plan" style="position:relative">
+        <h3>Дизайн-проєкт</h3><p>Планування залу й кухні «від А до Я»</p>
+        <button class="replay2" type="button" id="replayPlan"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>Зібрати ще раз</button>
+        <div class="plan-v" id="planScene"><video id="planVideo" src="media/design.mp4" poster="img/design-start.webp" width="1280" height="720" muted playsinline preload="metadata" aria-label="Відео: порожній зал за 5 секунд перетворюється на готовий ресторан за дизайн-проєктом"></video><span class="plan-tag">Порожній зал → готовий ресторан</span></div>
+      </div>
+      <div class="ic vid"><h3>Кухня й обладнання</h3><p>Так виглядає кухня перед відкриттям: усе змонтовано, обладнання ще в заводській плівці.</p>
+        <div class="ic-v"><video id="kv2" src="media/kitchen.mp4" poster="media/kitchen-poster.jpg" autoplay muted loop playsinline preload="none" aria-label="Відео з об'єкта: нова кухня перед відкриттям"></video><span class="ic-rec"><i></i>Відео з об'єкта</span></div>
+        <div class="ic-ph"><figure><img src="img/kitchen-1.webp" alt="Нова кухня з обладнанням перед відкриттям" width="885" height="1080" loading="lazy" style="object-position:50% 60%"><figcaption>Монтаж</figcaption></figure><figure><img src="img/kitchen-2.webp" alt="Робоча кухня з пароконвектоматами" width="810" height="1080" loading="lazy" style="object-position:50% 45%"><figcaption>У роботі</figcaption></figure></div>
+        <ul class="ic-list"><li><i><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>Планування кухні під ваше меню</li><li><i><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>Обладнання ваше, наше перевірене або під бюджет</li><li><i><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>Монтаж під контролем шефа</li></ul>
+      </div>
+      <div class="ic"><h3>Команда</h3><p>Найм і навчання персоналу до відкриття</p>
+        <svg class="people" viewBox="0 0 220 110" aria-hidden="true"><g fill="#C9C4BE"><circle cx="30" cy="40" r="11"/><path d="M14 104c0-26 7-46 16-46s16 20 16 46z"/><circle cx="190" cy="40" r="11"/><path d="M174 104c0-26 7-46 16-46s16 20 16 46z"/></g><g fill="#A9A49E"><circle cx="66" cy="34" r="12"/><path d="M48 106c0-30 8-52 18-52s18 22 18 52z"/><circle cx="154" cy="34" r="12"/><path d="M136 106c0-30 8-52 18-52s18 22 18 52z"/></g><g fill="#D6301C"><circle cx="110" cy="22" r="15"/><path d="M86 108c0-38 11-64 24-64s24 26 24 64z"/></g></svg>
+      </div>
+      <div class="ic"><h3>Меню й техкарти</h3><p>Страви з правильною собівартістю від шефа-технолога</p>
+        <div class="row2"><div style="font:800 34px/1 var(--fh);color:var(--red)">16</div><div style="font-size:13px;color:var(--mute);text-align:right">задач під ключ<br>від плану до відкриття</div></div>
+      </div>
+      <div class="ic more">
+        <div class="t"><h3>І ще багато іншого</h3><p>Локація, документи, каса, упаковка, просування й місяць супроводу. Залиште номер, і шеф розповість, що потрібно саме вам.</p></div>
+        <form id="moreForm" novalidate data-source="included">
+          <label class="fld"><span class="sr">Телефон</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><input id="m-phone" name="phone" type="tel" required autocomplete="tel" placeholder="Ваш телефон"></label>
+          <button class="btn btn-red" type="submit">Дізнатися більше</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOUNDER ================= -->
+<section id="chef">
+  <svg class="trail" id="t1" viewBox="0 0 300 160" style="right:max(2%,calc(50% - 640px));top:10px;width:300px;height:160px" aria-hidden="true"><defs><mask id="m1"><path class="tm" pathLength="1" d="M10 20 C 80 10, 110 60, 150 70 c 30 8, 40 -30, 15 -32 c -25 -2, -20 40, 20 55 S 270 120, 290 150"/></mask></defs><path class="tp" mask="url(#m1)" d="M10 20 C 80 10, 110 60, 150 70 c 30 8, 40 -30, 15 -32 c -25 -2, -20 40, 20 55 S 270 120, 290 150"/></svg>
+  <div class="wrap">
+    <div class="founder rv">
+      <div class="founder-text">
+        <h2>БЮРО РЕСТОРАННИХ РІШЕНЬ <span>— це не просто консультація,</span> а запуск із шефом на кухні</h2>
+        <p>Це досвід людини, яка <b>14 років стоїть на кухні</b>, 12 з них шеф-кухарем, і сьогодні керує рестораном, який сам відкрив з нуля. Він працює вже два роки.</p>
+        <p>За плечима <b>понад 20 запусків</b> від Харкова до Кіровоградщини: стрітфуд, кав'ярні, піцерії, суші, пивні ресторани. Як бренд-шеф мережі Red Cat Дмитро керував командою з 20+ кухарів і 9 точками.</p>
+        <p>Ми беремо на себе все, на чому новачки втрачають гроші: локацію, проєкт, обладнання, меню, команду. Ви приймаєте ключові рішення, а заклад залишається <b>повністю вашим</b>: без франшизи, роялті й нав'язаних постачальників.</p>
+        <div class="sign"><span class="s">Дмитро</span><small>Засновник «Бюро ресторанних рішень»<span>бренд-шеф, технолог харчової промисловості</span></small></div>
+        <button class="btn btn-ghost about-btn" type="button" data-about>Детальніше про Дмитра <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </div>
+      <div class="founder-vis" id="fvis">
+        <div class="f-chip"><b data-count="14">14</b><span>років на кухні</span></div>
+        <div class="f-chip b"><b data-count="20" data-suffix="+">20+</b><span>запусків</span></div>
+        <img src="img/chef-photo.webp" alt="Шеф Дмитро в кітелі, руки схрещені" width="1080" height="1520" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PLACES ================= -->
+<section id="places">
+  <svg class="pin3d l" viewBox="0 0 120 170" aria-hidden="true"><use href="#pinShape"/></svg>
+  <svg class="pin3d r" viewBox="0 0 120 170" aria-hidden="true"><use href="#pinShape"/></svg>
+  <div class="wrap">
+    <h2 class="h2 center rv">Так виглядають <em>заклади, відкриті шефом</em></h2>
+    <div class="locs">
+      <div class="loc rv" data-venue="greystone"><span class="pt">Заклад 1<i></i></span><div class="bx"><img src="img/greystone.jpg" alt="Фасад ресторану Grey Stone увечері" width="900" height="1125" loading="lazy" style="object-position:50% 25%"><div class="bt"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17a8 8 0 0 1 16 0z"/><path d="M2 17h20M12 7V5M10 5h4"/></svg><div><b>Grey Stone</b>ресторан · Софіївська Борщагівка</div></div></div></div>
+      <div class="loc rv" data-venue="gsp"><span class="pt">Заклад 2<i></i></span><div class="bx"><img src="img/gsp.jpg" alt="Фасад закладу Готові страви поруч" width="1200" height="798" loading="lazy" style="object-position:25% 40%"><div class="bt"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17a8 8 0 0 1 16 0z"/><path d="M2 17h20M12 7V5M10 5h4"/></svg><div><b>Готові страви поруч</b>корисні домашні страви</div></div></div></div>
+      <div class="loc rv" data-venue="eatit"><span class="pt">Заклад 3<i></i></span><div class="bx"><img src="img/eatit.jpg" alt="Фасад кафе Eat it з терасою" width="1000" height="760" loading="lazy" style="object-position:50% 35%"><div class="bt"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17a8 8 0 0 1 16 0z"/><path d="M2 17h20M12 7V5M10 5h4"/></svg><div><b>Eat it</b>кафе при ЖК · молодіжний формат</div></div></div></div>
+    </div>
+    <p class="sub center rv" style="margin-top:22px">А також три пивні ресторани мережі Red Cat у Харкові, оновлення мережі «Пивобанк» і понад десяток стрітфуд-точок, кав'ярень, піцерій і суші.</p>
+  </div>
+</section>
+
+<!-- ================= STEPS ================= -->
+<section id="steps">
+  <div class="wrap">
+    <h2 class="h2 center rv">Закриваємо всі питання <em>«під ключ»</em></h2>
+    <p class="sub center rv">Шеф Дмитро веде кожен етап від першої зустрічі до відкриття: 1,5–3 місяці. А після старту ще місяць поруч з вашою командою.</p>
+    <ol class="steps" id="stepsGrid" style="list-style:none;padding:0">
+      <li class="step" style="--i:0"><div class="n">1</div><h3>Зустріч</h3><p>Слухаємо ідею, виїжджаємо на приміщення або обговорюємо бюджет.</p></li>
+      <li class="step" style="--i:1"><div class="n">2</div><h3>Прорахунок</h3><p>Формат, інвестиції, терміни. Цифри ще до договору.</p></li>
+      <li class="step" style="--i:2"><div class="n">3</div><h3>Договір</h3><p>Фіксуємо обсяг робіт, вартість і графік запуску.</p></li>
+      <li class="step" style="--i:3"><div class="n">4</div><h3>Концепція і проєкт</h3><p>Бізнес-план, локація, назва, дизайн і планування.</p></li>
+      <li class="step" style="--i:4"><div class="n">5</div><h3>Ремонт і обладнання</h3><p>Контроль підрядників, техніка, постачальники.</p></li>
+      <li class="step" style="--i:5"><div class="n">6</div><h3>Меню і команда</h3><p>Техкарти, найм і навчання персоналу, каса, документи.</p></li>
+      <li class="step" style="--i:6"><div class="n">7</div><h3>Відкриття</h3><p>Просування до старту і перший день разом з вами.</p></li>
+      <li class="step" style="--i:7"><div class="n">8</div><h3>Супровід</h3><p>Перший місяць після відкриття: інструктаж команди й налагодження процесів.</p></li>
+    </ol>
+    <div class="sup-card rv">
+      <div class="sc-l"><span class="sc-k">Після відкриття</span><h3><big>+1</big> місяць супроводу</h3><p>Заклад не залишається сам на сам із першими гостями.</p></div>
+      <ul class="sc-r">
+        <li><i><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>Інструктаж і навчання команди</li>
+        <li><i><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>Налагодження кухні й процесів</li>
+        <li><i><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>Корекція меню за першими гостями</li>
+        <li><i><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></i>Відповіді на питання</li>
+      </ul>
+    </div>
+    <p class="sup-k rv">За це ви й платите: <span>за впевненість і спокій.</span></p>
+  </div>
+</section>
+
+<!-- ================= SCREEN: PRE-OPENING ================= -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="screen" id="screen">
+      <div class="rod"></div>
+      <div class="cv"><div class="in-c">
+        <div class="t">
+          <h3>Ще до відкриття <span class="red">про вас дізнаються</span></h3>
+          <p style="margin:10px 0 0;color:var(--ink2);font-size:14.5px">Просування до старту входить у запуск: заклад відкривається, коли на нього вже чекають.</p>
+          <ul>
+            <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11v2a1 1 0 0 0 1 1h3l5 4V6L7 10H4a1 1 0 0 0-1 1zM16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg>Анонси й соцмережі до старту</li>
+            <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>План першого дня й акції відкриття</li>
+          </ul>
+          <button class="btn btn-red" type="button" data-quiz>Хочу так само</button>
+        </div>
+        <div class="circle"><img src="img/eatit.jpg" alt="Кафе Eat it у день роботи, тераса зі столиками" width="1000" height="760" loading="lazy"></div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CALCULATOR ================= -->
+<section id="price" style="padding-top:20px">
+  <div class="wrap">
+    <h2 class="h2 center rv">Скільки коштує відкрити <em>ваш заклад</em></h2>
+    <p class="sub center rv">Оберіть площу приміщення, і калькулятор покаже вартість запуску та середні інвестиції.</p>
+    <div class="calc rv">
+      <div class="calc-in" id="tiers" role="group" aria-label="Площа приміщення"></div>
+      <div class="card calc-out">
+        <div class="cap" id="curTier">Заклад 20–40 м²</div>
+        <div class="res-grid">
+          <div><div style="font-weight:700">Запуск під ключ</div><div class="big red" id="priceVal">$3 300</div><div style="margin-top:6px;font-size:13px;color:var(--mute)">разова оплата нашої роботи</div></div>
+          <div><div style="font-weight:700">Середні інвестиції</div><div class="big" id="investVal">$15–25k</div><div style="margin-top:6px;font-size:13px;color:var(--mute)">ремонт, обладнання, запуск</div></div>
+        </div>
+        <div>
+          <div class="cap" style="margin-bottom:12px">Інвестиції за площею, тис. $</div>
+          <div class="chart"><div class="gl" style="top:0"></div><div class="gl" style="top:50%"></div><span class="yl" style="top:-6px">70</span><span class="yl" style="top:calc(50% - 6px)">35</span><span class="yl" style="bottom:-6px">0</span><div class="bars" id="bars" role="group" aria-label="Інвестиції за площею"></div></div>
+          <div class="xl" id="xl"></div>
+        </div>
+        <div class="calc-foot"><p>* Попередні ціни. Точний кошторис рахуємо після зустрічі, під ваш формат і приміщення.</p><button class="btn btn-red" type="button" data-quiz>Отримати кошторис</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BANNER ================= -->
+<section style="padding-top:20px">
+  <div class="wrap">
+    <div class="banner rv">
+      <svg class="clip" viewBox="0 0 34 44" aria-hidden="true"><defs><radialGradient id="clg" cx="35%" cy="30%"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#C9C4BE"/></radialGradient></defs><rect x="15" y="16" width="4" height="24" rx="2" fill="#D9D4CE"/><circle cx="17" cy="13" r="12" fill="url(#clg)"/><ellipse cx="13" cy="9" rx="4" ry="2.5" fill="#fff" opacity=".9"/></svg>
+      <svg class="bi l" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="10" y="6" width="44" height="52" rx="6"/><rect x="17" y="13" width="30" height="11" rx="2"/><path d="M19 33h4M30 33h4M41 33h4M19 42h4M30 42h4M41 42v8M19 50h15"/></svg>
+      <h3>Спочатку прорахунок, потім договір</h3>
+      <p>На першій зустрічі рахуємо формат, інвестиції й терміни. Ви бачите всі цифри ще до старту і вирішуєте спокійно.</p>
+      <svg class="bi r" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="12" width="40" height="40" rx="6"/><path d="M6 22h40M16 6v10M36 6v10"/><circle cx="46" cy="46" r="13" fill="#D6301C"/><path d="M46 39v7l5 3"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LEAD MAGNET ================= -->
+<section>
+  <svg class="trail" id="t2" viewBox="0 0 260 200" style="left:max(1%,calc(50% - 660px));top:0;width:260px;height:200px" aria-hidden="true"><defs><mask id="m2"><path class="tm" pathLength="1" d="M250 10 C 180 20, 160 70, 120 80 c -30 8, -40 -28, -14 -30 c 26 -2, 18 40, -20 58 S 30 150, 10 190"/></mask></defs><path class="tp" mask="url(#m2)" d="M250 10 C 180 20, 160 70, 120 80 c -30 8, -40 -28, -14 -30 c 26 -2, 18 40, -20 58 S 30 150, 10 190"/></svg>
+  <div class="wrap">
+    <div class="lead">
+      <div class="books rv" aria-hidden="true">
+        <div class="bk b"><b style="font:700 14px var(--fh)">Кошторис</b><i></i><i class="r"></i><i></i><div class="ph"></div><i></i><i class="r"></i></div>
+        <div class="bk a"><img src="img/buro-logo-white.svg" alt="" width="1620" height="552" style="width:160px"><div class="t"><small>Прорахунок</small>вашого закладу</div><div class="l">Формат і площа<br>Інвестиції<br>Вартість запуску<br>Терміни</div></div>
+        <div class="pen"></div>
+      </div>
+      <form class="dash lead-form rv" id="leadForm" novalidate data-source="lead">
+        <span class="pinball" aria-hidden="true"></span>
+        <h3>Отримайте попередній прорахунок</h3>
+        <p>і дізнайтесь, скільки коштуватиме саме <span class="red" style="font-weight:700">ваш заклад</span></p>
+        <div class="fields">
+          <label class="fld"><span class="sr">Ім'я</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg><input id="l-name" name="name" type="text" required autocomplete="name" placeholder="Ваше ім'я"></label>
+          <label class="fld"><span class="sr">Телефон</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><input id="l-phone" name="phone" type="tel" required autocomplete="tel" placeholder="+380"></label>
+        </div>
+        <button class="btn btn-red" type="submit"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Отримати прорахунок</button>
+        <button class="btn btn-ghost" type="button" data-quiz>Або пройти тест за 1 хвилину</button>
+        <label class="consent" style="justify-content:center"><input type="checkbox" name="agree" required checked><span>Погоджуюсь з обробкою персональних даних згідно з <a href="#privacy" data-doc="privacy">політикою конфіденційності</a></span></label>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section id="faq">
+  <div class="wrap">
+    <div class="faq-head rv">
+      <span class="faq-tag">FAQ</span>
+      <h2 class="h2">Часті <em>запитання</em></h2>
+      <svg class="qmark" viewBox="0 0 100 140" aria-hidden="true"><defs><linearGradient id="qg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF7A60"/><stop offset=".5" stop-color="#E23A22"/><stop offset="1" stop-color="#A8180A"/></linearGradient></defs><g font-family="Montserrat,Arial Black,sans-serif" font-weight="900" font-size="128"><text x="14" y="118" fill="#8E1406">?</text><text x="12" y="116" fill="#9C1709">?</text><text x="10" y="114" fill="#AA1A0B">?</text><text x="8" y="112" fill="#B81E0D">?</text><text x="6" y="110" fill="url(#qg)">?</text></g><ellipse cx="34" cy="38" rx="9" ry="5" fill="#fff" opacity=".35" transform="rotate(-30 34 38)"/></svg>
+    </div>
+    <div class="faq-wrap">
+      <div class="faq rv" id="faqList"></div>
+      <form class="dash side-form rv" id="faqForm" novalidate data-source="faq">
+        <span class="pinball" aria-hidden="true"></span>
+        <h3>Є додаткові питання?</h3>
+        <p>Залиште контакти, і <span class="red" style="font-weight:700">шеф передзвонить</span></p>
+        <label class="fld"><span class="sr">Телефон</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><input id="q-phone2" name="phone" type="tel" required autocomplete="tel" placeholder="Ваш телефон"></label>
+        <button class="btn btn-red" type="submit">Передзвоніть мені</button>
+        <label class="consent" style="justify-content:center"><input type="checkbox" name="agree" required checked><span>Погоджуюсь з обробкою персональних даних згідно з <a href="#privacy" data-doc="privacy">політикою конфіденційності</a></span></label>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TELEGRAM ================= -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="dash tg rv" id="tg">
+      <span class="pinball" aria-hidden="true"></span>
+      <div class="t">
+        <h3>Напишіть шефу в Telegram, щоб <span class="red">обговорити свій заклад</span></h3>
+        <p>Розкажіть про ідею чи приміщення. Дмитро відповідає сам і підкаже, з чого почати.</p>
+        <a class="btn btn-red" href="https://t.me/" target="_blank" rel="noopener">Написати <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M21.5 3.5 2.8 10.7c-1 .4-1 1.8.1 2.1l4.7 1.5 1.8 5.6c.3.9 1.4 1.1 2 .4l2.6-2.7 4.9 3.6c.8.6 1.9.2 2.1-.8L23 4.9c.2-1-.7-1.8-1.5-1.4zM9.6 14.6l8.7-7.8-6.9 9.2-.3 3.2z"/></svg></a>
+      </div>
+      <div class="phone-m" aria-hidden="true"><div class="scr">
+        <div class="hd"><img src="img/chef-portrait.jpg" alt="" width="34" height="34" loading="lazy"><div><b>Шеф Дмитро</b><span>в мережі</span></div></div>
+        <div class="msgs">
+          <div class="msg">Добрий день! Хочу кав'ярню, є приміщення 30 м². З чого почати?<small>13:33</small></div>
+          <div class="msg me">Вітаю! Почнемо з виїзду й прорахунку. Формат, меню, обладнання й команду беру на себе.<small>13:41</small></div>
+          <div class="msg">Супер, коли можна зустрітись?<small>13:42</small></div>
+        </div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL ================= -->
+<section style="padding-bottom:clamp(72px,9vw,120px)">
+  <div class="wrap">
+    <div class="dash final rv" style="position:relative">
+      <span class="pinball" aria-hidden="true"></span>
+      <svg class="bell l" viewBox="0 0 120 130" aria-hidden="true"><use href="#bellShape"/></svg>
+      <svg class="bell r" viewBox="0 0 120 130" aria-hidden="true" style="transform:scaleX(-1)"><use href="#bellShape"/></svg>
+      <h2>Зробіть перший крок!</h2>
+      <p>Залиште заявку й отримайте прорахунок свого закладу</p>
+      <form id="finalForm" novalidate data-source="final">
+        <div class="fields">
+          <label class="fld"><span class="sr">Ім'я</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg><input id="f-name" name="name" type="text" required autocomplete="name" placeholder="Ваше ім'я"></label>
+          <label class="fld"><span class="sr">Телефон</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><input id="f-phone" name="phone" type="tel" required autocomplete="tel" placeholder="+380"></label>
+        </div>
+        <button class="btn btn-red" type="submit">Подати заявку</button>
+        <label class="consent" style="justify-content:center"><input type="checkbox" name="agree" required checked><span>Погоджуюсь з обробкою персональних даних згідно з <a href="#privacy" data-doc="privacy">політикою конфіденційності</a></span></label>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <a class="logo" href="#top"><img class="logo-img foot-logo" src="img/buro-logo-white.svg" alt="Бюро ресторанних рішень" width="1620" height="552" loading="lazy"></a>
+    <p>[+380 XX XXX XX XX] · Telegram · © 2026 Заклади під ключ по всій Україні</p>
+    <nav class="foot-docs" aria-label="Документи"><a href="#privacy" data-doc="privacy">Політика конфіденційності</a><a href="#oferta" data-doc="oferta">Договір публічної оферти</a></nav>
+  </div>
+</footer>
+
+<button class="fab" type="button" data-quiz aria-label="Тест: скільки коштує ваш заклад">
+  <span class="m"><img src="img/buro-icon-white.svg" alt="" width="44" height="44"></span>
+  <span class="txt">Скільки коштує<br>ваш заклад?</span>
+</button>
+
+<div class="modal" id="quiz" hidden>
+  <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="quizTitle">
+    <div class="dlg-head">
+      <p><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg>Пройдіть тест за 1 хвилину й дізнайтесь, скільки коштуватиме відкрити саме ваш заклад</p>
+      <span class="st" id="quizStep">1/5</span>
+      <button class="x" type="button" id="quizClose" aria-label="Закрити"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <div class="prog"><i id="quizProg" style="width:0%"></i></div>
+    <div id="quizBody"></div>
+  </div>
+</div>
+
+<div class="modal" id="about" hidden>
+  <div class="dialog about" role="dialog" aria-modal="true" aria-labelledby="aboutTitle">
+    <div class="dlg-head">
+      <p><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 21h10M8 17h8v4H8z"/><path d="M8 17c-3 0-5-2-5-4.5S5 8 7.5 8.5C8 5.5 9.8 3 12 3s4 2.5 4.5 5.5C19 8 21 10 21 12.5S19 17 16 17"/></svg>Шеф Дмитро: досвід і страви</p>
+      <button class="x" type="button" id="aboutClose" aria-label="Закрити"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <div class="ab-body">
+      <div class="ab-top">
+        <img class="ab-photo" src="img/chef-photo.webp" alt="Шеф Дмитро в кітелі" width="1080" height="1520" loading="lazy">
+        <div>
+          <span class="tagline">Бренд-шеф · технолог харчової промисловості</span>
+          <h3 id="aboutTitle">Шеф Дмитро</h3>
+          <p>У ресторанній справі з 2012 року: 14 років на кухні, з них 12 шеф-кухарем. Має диплом технолога харчової промисловості й закордонну практику. Сьогодні керує рестораном, який сам відкрив з нуля, і запускає заклади для інших по всій Україні.</p>
+          <p>Дмитро не консультує здалеку: сам складає меню й техкарти, підбирає обладнання та навчає команду.</p>
+          <div class="ab-stats">
+            <div><b>20+</b>запусків від Харкова до Кіровоградщини</div>
+            <div><b>14 років</b>на кухні, з 2012 року</div>
+            <div><b>12 років</b>шеф-кухарем</div>
+            <div><b>9 точок</b>мережі Red Cat як бренд-шеф</div>
+            <div><b>20+</b>кухарів у команді Red Cat</div>
+            <div><b>Закордон</b>практика за кордоном</div>
+          </div>
+        </div>
+      </div>
+      <div class="dsh" id="dish3d" role="region" aria-roledescription="карусель" aria-label="Страви шефа Дмитра">
+        <div class="dsh-embers" aria-hidden="true"><i style="left:25.2%;--d:5.5s;--dl:-4.0s;--sz:2px"></i><i style="left:11.5%;--d:5.1s;--dl:-5.5s;--sz:3px"></i><i style="left:78.2%;--d:8.8s;--dl:-2.2s;--sz:4px"></i><i style="left:36.9%;--d:8.9s;--dl:-8.3s;--sz:3px"></i><i style="left:23.2%;--d:9.6s;--dl:-8.3s;--sz:3px"></i><i style="left:78.2%;--d:6.0s;--dl:-3.1s;--sz:3px"></i><i style="left:11.2%;--d:8.0s;--dl:-6.7s;--sz:4px"></i><i style="left:26.4%;--d:6.2s;--dl:-2.8s;--sz:4px"></i><i style="left:82.0%;--d:5.0s;--dl:-2.9s;--sz:3px"></i><i style="left:82.7%;--d:7.5s;--dl:-4.1s;--sz:4px"></i><i style="left:30.1%;--d:7.3s;--dl:-2.3s;--sz:3px"></i><i style="left:79.4%;--d:5.2s;--dl:-0.5s;--sz:3px"></i><i style="left:51.8%;--d:8.2s;--dl:-7.0s;--sz:2px"></i><i style="left:96.7%;--d:6.0s;--dl:-4.1s;--sz:2px"></i><i style="left:62.7%;--d:7.2s;--dl:-1.8s;--sz:3px"></i><i style="left:73.2%;--d:6.6s;--dl:-5.6s;--sz:3px"></i><i style="left:12.5%;--d:5.3s;--dl:-2.3s;--sz:4px"></i><i style="left:60.9%;--d:6.2s;--dl:-3.3s;--sz:2px"></i><i style="left:30.3%;--d:5.1s;--dl:-3.6s;--sz:2px"></i><i style="left:87.2%;--d:9.8s;--dl:-7.3s;--sz:3px"></i><i style="left:4.7%;--d:6.4s;--dl:-9.7s;--sz:3px"></i><i style="left:84.0%;--d:9.3s;--dl:-6.8s;--sz:2px"></i></div>
+        <div class="dsh-head"><span class="dsh-kicker">Страви шефа</span><h4>Так готує Дмитро</h4></div>
+        <div class="dsh-stage" id="d3Stage" tabindex="0" aria-label="Карусель страв: стрілки вліво й вправо, Enter щоб збільшити"><div class="dsh-track" id="d3Track"></div></div>
+        <div class="dsh-ctrl">
+          <button class="dsh-btn" type="button" id="d3Prev" aria-label="Попередня страва"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <div class="dsh-name" id="d3Name" aria-live="polite"></div>
+          <button class="dsh-btn" type="button" id="d3Next" aria-label="Наступна страва"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+        </div>
+        <p class="dsh-hint"><span id="d3Count">01 / 07</span> · Гортайте двома пальцями на тачпаді, тягніть або натисніть на страву</p>
+      </div>
+      <div class="ab-sec">
+        <h4>Які формати запускає</h4>
+        <div class="ab-tags"><span>Стрітфуд і шаурма</span><span>Бургерні</span><span>Піцерії</span><span>Суші</span><span>Кав’ярні</span><span>Пекарні</span><span>Кондитерські</span><span>Dark kitchen</span><span>Кафе при ЖК</span><span>Ресторани й паби</span><span>Перезапуск і нове меню</span></div>
+      </div>
+      <div class="ab-cta">
+        <p>Хочете, щоб ваш заклад запускав Дмитро?</p>
+        <button class="btn btn-red" type="button" data-about-quiz>Розрахувати мій заклад <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+    <div class="ab-zoom" id="abZoom" hidden><img src="" alt=""></div>
+  </div>
+</div>
+
+<div class="modal doc-modal" id="doc" hidden>
+  <div class="dialog doc-dlg" role="dialog" aria-modal="true" aria-labelledby="docTitle">
+    <div class="dlg-head"><p id="docTitle"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg><span>Документ</span></p><button class="x" type="button" id="docClose" aria-label="Закрити"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+    <article class="doc-body" id="docBody"></article>
+  </div>
+</div>
+<template id="doc-privacy"><h2 class="doc-h">Політика конфіденційності</h2>
+<p class="doc-ed">Редакція від 14 листопада 2026 року</p>
+<h3>1. Загальні положення</h3>
+<p>1.1. Ця Політика конфіденційності визначає, як <mark class="fill">[ПІБ ФОП або назва компанії]</mark> (далі — «Виконавець», «ми») збирає, використовує й захищає персональні дані відвідувачів сайту «Бюро ресторанних рішень» (далі — «Сайт»).</p>
+<p>1.2. Політику складено відповідно до Закону України «Про захист персональних даних» від 01.06.2010 № 2297-VI.</p>
+<p>1.3. Залишаючи заявку на Сайті й позначаючи згоду, ви підтверджуєте, що ознайомилися з цією Політикою та погоджуєтеся з обробкою ваших персональних даних на її умовах.</p>
+<h3>2. Які дані ми отримуємо</h3>
+<ul>
+<li>ім’я;</li>
+<li>номер телефону;</li>
+<li>обраний спосіб зв’язку: Telegram, Viber, WhatsApp або дзвінок;</li>
+<li>відповіді на питання тесту (формат закладу, площа, наявність приміщення, бюджет, терміни) і попередній розрахунок;</li>
+<li>технічні дані заявки: сторінка, з якої її надіслано, дата й час.</li>
+</ul>
+<p>Ми не просимо паспортних, платіжних чи інших чутливих даних. Будь ласка, не вказуйте у формах інформацію, яка не потрібна для зв’язку з вами.</p>
+<h3>3. Для чого ми використовуємо дані</h3>
+<ul>
+<li>щоб зв’язатися з вами в обраний спосіб і відповісти на заявку;</li>
+<li>щоб підготувати попередній прорахунок вашого закладу;</li>
+<li>щоб укласти й виконати договір про надання послуг;</li>
+<li>щоб покращувати роботу Сайту.</li>
+</ul>
+<p>Ми не надсилаємо рекламних розсилок без вашої окремої згоди.</p>
+<h3>4. Підстави обробки</h3>
+<p>Ми обробляємо дані на підставі вашої згоди, а після укладення договору також для його виконання (стаття 11 Закону України «Про захист персональних даних»).</p>
+<h3>5. Передача даних третім особам</h3>
+<p>5.1. Ми не продаємо й не передаємо ваші дані третім особам, крім таких випадків:</p>
+<ul>
+<li>сервіси, через які заявка надходить до нас (<mark class="fill">[назва сервісу обробки форм / месенджера]</mark>): вони отримують дані лише для того, щоб доставити заявку;</li>
+<li>вимога закону, зокрема запит уповноважених державних органів.</li>
+</ul>
+<p>5.2. Сайт завантажує шрифти із сервісу Google Fonts, тому Google може отримати IP-адресу вашого пристрою.</p>
+<h3>6. Cookies і дані в браузері</h3>
+<p>Сайт не використовує рекламних cookies і сторонніх лічильників. У браузері зберігається лише технічна позначка сесії про вже надіслану заявку, щоб тест не відкривався повторно. Вона видаляється, коли ви закриваєте вкладку.</p>
+<h3>7. Строк зберігання</h3>
+<p>Ми зберігаємо дані не довше, ніж це потрібно для зазначених цілей: якщо договір не укладено, до 12 місяців від дня заявки; якщо укладено, протягом строку його дії та строків зберігання документів, установлених законодавством.</p>
+<h3>8. Ваші права</h3>
+<p>Відповідно до статті 8 Закону ви маєте право:</p>
+<ul>
+<li>знати, які ваші дані обробляються, ким і з якою метою;</li>
+<li>отримати доступ до своїх даних;</li>
+<li>вимагати виправлення або видалення даних;</li>
+<li>відкликати згоду на обробку;</li>
+<li>звернутися зі скаргою до Уповноваженого Верховної Ради України з прав людини або до суду.</li>
+</ul>
+<p>Щоб скористатися цими правами, напишіть нам на <mark class="fill">[email]</mark> або зателефонуйте за номером <mark class="fill">[+380 XX XXX XX XX]</mark>. Ми відповімо протягом 30 календарних днів.</p>
+<h3>9. Захист даних</h3>
+<p>Доступ до заявок мають лише особи, яким вони потрібні для роботи з вами. Ми вживаємо організаційних і технічних заходів, щоб захистити дані від втрати, неправомірного доступу чи поширення.</p>
+<h3>10. Зміни Політики</h3>
+<p>Нова редакція Політики публікується на цій сторінці із зазначенням дати й діє з моменту публікації.</p>
+<h3>11. Контакти</h3>
+<p><mark class="fill">[ПІБ ФОП або назва компанії]</mark>, <mark class="fill">[ІПН або код ЄДРПОУ]</mark><br>Адреса: <mark class="fill">[адреса]</mark><br>Email: <mark class="fill">[email]</mark> · Телефон: <mark class="fill">[+380 XX XXX XX XX]</mark></p>
+</template><template id="doc-oferta"><h2 class="doc-h">Договір публічної оферти</h2>
+<p class="doc-ed">Редакція від 14 листопада 2026 року</p>
+<h3>1. Загальні положення</h3>
+<p>1.1. Цей договір є публічною офертою <mark class="fill">[ПІБ ФОП або назва компанії]</mark> (далі — «Виконавець») у розумінні статей 633 і 641 Цивільного кодексу України, адресованою будь-якій фізичній особі, фізичній особі-підприємцю або юридичній особі (далі — «Замовник»).</p>
+<p>1.2. Акцептом оферти є оплата Замовником рахунку Виконавця, повністю або авансом, згідно з погодженим Кошторисом. З моменту акцепту договір вважається укладеним на умовах цієї оферти (стаття 642 Цивільного кодексу України).</p>
+<p>1.3. Якщо Сторони підписали окремий письмовий договір, у разі розбіжностей діють умови письмового договору.</p>
+<h3>2. Терміни</h3>
+<ul>
+<li><b>Послуги</b> — консультаційні та організаційні послуги з відкриття або перезапуску закладу громадського харчування «під ключ» чи окремих його етапів.</li>
+<li><b>Кошторис</b> — погоджений Сторонами документ із переліком Послуг, їх вартістю, етапами й строками.</li>
+<li><b>Заклад</b> — заклад громадського харчування Замовника.</li>
+<li><b>Сайт</b> — <mark class="fill">[адреса сайту]</mark>.</li>
+</ul>
+<h3>3. Предмет договору</h3>
+<p>3.1. Виконавець зобов’язується надати Замовнику Послуги в обсязі, визначеному Кошторисом, а Замовник — прийняти й оплатити їх.</p>
+<p>3.2. До Послуг можуть входити: бізнес-план; підбір приміщення, аналіз локації й аудиторії; концепція й назва; дизайн-проєкт і контроль підрядників; підбір обладнання й постачальників; меню й технологічні карти; упаковка й уніформа; підбір і навчання персоналу; оформлення документів; каса й автоматизація; просування до відкриття; супровід відкриття й першого місяця роботи.</p>
+<p>3.3. Ремонтні роботи, постачання обладнання, продуктів і матеріалів виконують треті особи за окремими договорами із Замовником і оплачуються окремо, якщо Сторони письмово не погодили інше.</p>
+<h3>4. Порядок надання Послуг</h3>
+<p>4.1. Послуги надаються в такому порядку: зустріч і консультація; попередній прорахунок; погодження Кошторису й оплата; виконання етапів; відкриття Закладу; супровід після відкриття.</p>
+<p>4.2. Орієнтовний строк надання Послуг — від 1,5 до 3 місяців від дня оплати та надання Замовником приміщення й потрібної інформації. Для великих проєктів строк визначається Кошторисом.</p>
+<p>4.3. Строки продовжуються на час затримок, що виникли з вини Замовника або третіх осіб (підрядників, постачальників, органів влади).</p>
+<p>4.4. Супровід після відкриття триває 1 (один) календарний місяць від дня відкриття Закладу й охоплює інструктаж і навчання персоналу, налагодження роботи кухні й процесів, корекцію меню та консультації.</p>
+<h3>5. Вартість і порядок оплати</h3>
+<p>5.1. Вартість Послуг визначається Кошторисом. Ціни, зазначені на Сайті, є орієнтовними.</p>
+<p>5.2. Розрахунки здійснюються в гривнях безготівково на рахунок Виконавця <mark class="fill">[або інший погоджений спосіб]</mark>.</p>
+<p>5.3. Якщо Кошторисом не передбачено іншого, Замовник вносить аванс у розмірі <mark class="fill">[__]</mark> % вартості Послуг, а решту — після завершення відповідних етапів.</p>
+<p>5.4. Вартість Послуг не включає витрат на ремонт, обладнання, продукти, матеріали, послуги третіх осіб, державні збори та відрядження за межі <mark class="fill">[місто]</mark>, якщо інше не зазначено в Кошторисі.</p>
+<h3>6. Права та обов’язки Сторін</h3>
+<p>6.1. Виконавець зобов’язується надавати Послуги якісно й у погоджені строки, інформувати Замовника про хід робіт і зберігати конфіденційність отриманої інформації.</p>
+<p>6.2. Виконавець має право залучати третіх осіб, залишаючись відповідальним перед Замовником, а також призупинити надання Послуг у разі порушення строків оплати.</p>
+<p>6.3. Замовник зобов’язується своєчасно оплачувати Послуги, надавати потрібну інформацію й доступ до приміщення, приймати рішення й погоджувати результати етапів у розумні строки.</p>
+<p>6.4. Замовник має право отримувати інформацію про хід робіт і вимагати усунення недоліків наданих Послуг.</p>
+<h3>7. Приймання Послуг</h3>
+<p>Надання Послуг за кожним етапом підтверджується актом приймання-передачі або листуванням Сторін в електронній пошті чи месенджері. Якщо Замовник протягом 5 (п’яти) робочих днів не надав обґрунтованих заперечень, Послуги вважаються прийнятими.</p>
+<h3>8. Відповідальність</h3>
+<p>8.1. За невиконання або неналежне виконання договору Сторони відповідають згідно із законодавством України.</p>
+<p>8.2. Виконавець не гарантує певного рівня прибутку Закладу: фінансовий результат залежить від рішень Замовника, ситуації на ринку та інших обставин поза контролем Виконавця.</p>
+<p>8.3. Відповідальність Виконавця обмежується вартістю оплачених Послуг за відповідним етапом.</p>
+<h3>9. Форс-мажор</h3>
+<p>Сторони звільняються від відповідальності за невиконання зобов’язань унаслідок обставин непереборної сили, засвідчених Торгово-промисловою палатою України. Строк виконання зобов’язань продовжується на час дії таких обставин.</p>
+<h3>10. Конфіденційність і персональні дані</h3>
+<p>Сторони зберігають конфіденційність інформації, отриманої під час виконання договору. Персональні дані Замовника обробляються згідно з <a href="#privacy" data-doc="privacy">Політикою конфіденційності</a>.</p>
+<h3>11. Зміна й розірвання договору</h3>
+<p>11.1. Договір може бути змінений або розірваний за згодою Сторін.</p>
+<p>11.2. Замовник може відмовитися від договору, оплативши фактично надані Послуги (стаття 907 Цивільного кодексу України). Аванс за ненадані Послуги повертається протягом 14 календарних днів за вирахуванням фактичних витрат Виконавця.</p>
+<h3>12. Вирішення спорів</h3>
+<p>Спори вирішуються шляхом переговорів, а в разі недосягнення згоди — у суді відповідно до законодавства України.</p>
+<h3>13. Строк дії оферти</h3>
+<p>Оферта діє з моменту публікації на Сайті до її відкликання. Зміни оферти не поширюються на договори, укладені до їх публікації.</p>
+<h3>14. Реквізити Виконавця</h3>
+<p><mark class="fill">[ПІБ ФОП або назва компанії]</mark><br><mark class="fill">[ІПН або код ЄДРПОУ]</mark><br>Адреса: <mark class="fill">[адреса]</mark><br>IBAN: <mark class="fill">[UA00 0000 0000 0000 0000 0000 000]</mark>, банк: <mark class="fill">[назва банку]</mark><br>Email: <mark class="fill">[email]</mark> · Телефон: <mark class="fill">[+380 XX XXX XX XX]</mark></p>
+</template>
+<!-- shared 3D shapes -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <radialGradient id="pinG" cx="34%" cy="28%" r="80%"><stop offset="0" stop-color="#FF9A84"/><stop offset=".32" stop-color="#EE4A30"/><stop offset=".75" stop-color="#C5250F"/><stop offset="1" stop-color="#7E1205"/></radialGradient>
+    <radialGradient id="holeG" cx="60%" cy="70%" r="70%"><stop offset="0" stop-color="#F7836C"/><stop offset=".6" stop-color="#C9260F"/><stop offset="1" stop-color="#7E1205"/></radialGradient>
+    <symbol id="pinShape" viewBox="0 0 120 170"><path d="M60 4C29 4 6 27 6 57c0 39 54 109 54 109s54-70 54-109C114 27 91 4 60 4z" fill="url(#pinG)"/><circle cx="60" cy="56" r="22" fill="url(#holeG)"/><ellipse cx="40" cy="30" rx="15" ry="8" fill="#fff" opacity=".38" transform="rotate(-32 40 30)"/></symbol>
+    <linearGradient id="bellG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF8A70"/><stop offset=".45" stop-color="#E23A22"/><stop offset="1" stop-color="#9A1608"/></linearGradient>
+    <symbol id="bellShape" viewBox="0 0 120 130"><circle cx="60" cy="12" r="8" fill="#C5250F"/><path d="M60 18c-22 0-34 18-34 42v20l-12 16h92L94 80V60c0-24-12-42-34-42z" fill="url(#bellG)"/><path d="M14 96h92v8a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4z" fill="#A8180A"/><circle cx="60" cy="116" r="11" fill="#C5250F"/><path d="M64 44l-14 24h10l-4 18 14-26H60z" fill="#fff"/><ellipse cx="42" cy="44" rx="6" ry="14" fill="#fff" opacity=".28" transform="rotate(20 42 44)"/></symbol>
+  </defs>
+</svg>
+
+<script>
+(function () {
+  'use strict';
+  /* ====== НАЛАШТУВАННЯ ======
+     LEAD_ENDPOINT: адреса обробника заявок (Formspree, Make, n8n або ваш сервер, що пересилає в Telegram).
+     Порожньо = заявки нікуди не йдуть, лише показується «Дякуємо». */
+  var LEAD_ENDPOINT = '';
+  /* Посилання на заклади в блоці «Заклади, відкриті шефом».
+     map — Google Maps (зараз пошук за назвою; краще вставити точне посилання «Поділитися» з карти),
+     ig — Instagram закладу. Порожньо = кнопка не показується. */
+  var VENUE_LINKS = {
+    greystone: { map: 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('Grey Stone ресторан Софіївська Борщагівка'), ig: '' },
+    gsp:       { map: 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('Готові страви поруч Софіївська Борщагівка'), ig: '' },
+    eatit:     { map: 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('Eat it кафе Софіївська Борщагівка'), ig: '' }
+  };
+  var POPUP_EVERY_MS = 60000; // тест відкривається сам після кожної хвилини гортання сайту (0 = вимкнено)
+  var leadDone = false; try { leadDone = sessionStorage.getItem('leadSent') === '1'; } catch (err) {}
+
+  function sendLead(data) {
+    leadDone = true; try { sessionStorage.setItem('leadSent', '1'); } catch (err) {}
+    data.page = location.href; data.sentAt = new Date().toISOString();
+    if (!LEAD_ENDPOINT) { console.log('[lead]', data); return; }
+    fetch(LEAD_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data) }).catch(function (e) { console.warn('[lead] not sent', e); });
+  }
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var fmt = function (n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' '); };
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var ARROW = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+
+  /* ---------- заставка: логотип на червоному, потім їжа злітає вгору і екран піднімається ---------- */
+  (function () {
+    var root = document.documentElement, pl = $('#pl');
+    function done() { root.classList.remove('pl-on'); window.__plDone = true; document.dispatchEvent(new Event('pl:done')); }
+    if (!pl || !root.classList.contains('pl-on')) { if (pl) pl.remove(); window.__plDone = true; return; }
+    var rain = $('#plRain'), ICONS = ['coffee', 'pizza', 'burger', 'donut', 'cupcake', 'icecream', 'croissant', 'sushi', 'cherry', 'fish', 'chef', 'wine', 'lemon', 'cutlery', 'carrot'];
+    var rnd = function (a, b) { return a + Math.random() * (b - a); }, H = function () { return window.innerHeight; };
+    function drop(o) {
+      var el = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      el.setAttribute('viewBox', '0 0 48 48'); el.setAttribute('class', 'pf');
+      var u = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+      u.setAttribute('href', '#fi-' + ICONS[Math.floor(Math.random() * ICONS.length)]); el.appendChild(u);
+      el.style.left = rnd(2, 98) + '%'; el.style.setProperty('--s', o.size + 'px');
+      if (o.blur) el.style.filter = 'blur(' + o.blur + 'px)';
+      rain.appendChild(el);
+      var r0 = rnd(-40, 40), r1 = r0 + rnd(-160, 160), dx = rnd(-60, 60), dist = o.dist || (H() * rnd(1.15, 1.45) + o.size);
+      var a = el.animate([
+        { transform: 'translate3d(0,' + (o.from || 0) + 'px,0) rotate(' + r0 + 'deg)', opacity: 0 },
+        { opacity: o.op, offset: o.fin || 0.12 },
+        { opacity: o.op, offset: 0.8 },
+        { transform: 'translate3d(' + dx + 'px,' + (-dist) + 'px,0) rotate(' + r1 + 'deg)', opacity: 0 }
+      ], { duration: o.dur, delay: o.delay || 0, easing: o.ease || 'linear', fill: 'both' });
+      a.onfinish = function () { el.remove(); };
+    }
+    // тихий «дощ» вгору, поки показується логотип
+    var amb = setInterval(function () { var sz = rnd(18, 40); drop({ size: sz, op: rnd(0.2, 0.45), dur: rnd(3400, 5200), blur: sz < 24 ? 1 : 0 }); }, 130);
+    for (var i = 0; i < 10; i++) drop({ size: rnd(16, 30), op: rnd(0.18, 0.38), dur: rnd(3600, 5200), from: -H() * rnd(0.2, 0.8) });
+    var t0 = performance.now(), loaded = document.readyState === 'complete', gone = false;
+    function go() {
+      if (gone) return; gone = true; clearInterval(amb);
+      // одночасно: логотип розчиняється, їжа повільно спливає по всьому екрану, червоний екран піднімається разом із нею
+      for (var j = 0; j < 46; j++) drop({ size: rnd(22, 58), op: rnd(0.65, 1), dur: rnd(1900, 2500), delay: rnd(0, 450), fin: 0.18, ease: 'cubic-bezier(.4,0,.6,1)', from: -H() * rnd(-0.05, 1.05), dist: H() * rnd(0.45, 0.85) });
+      pl.classList.add('out', 'go');
+      setTimeout(done, 450);
+      setTimeout(function () { pl.remove(); }, 2700);
+    }
+    function maybe() { var wait = Math.max(0, 2100 - (performance.now() - t0)); setTimeout(go, wait); }
+    if (loaded) maybe(); else { window.addEventListener('load', maybe, { once: true }); setTimeout(go, 4500); }
+    pl.addEventListener('click', go);
+  })();
+
+  /* ---------- hero: 5-секундний таймлапс у правій половині, грає один раз ---------- */
+  (function () {
+    var root = document.documentElement, v = $('#tlVideo'), hero = $('#tl'), head = $('.site-head');
+    var END_POSTER = 'img/stage-5.webp';
+    function hh() { if (head) root.style.setProperty('--hh', head.offsetHeight + 'px'); }
+    window.addEventListener('resize', hh); hh();
+    if (!v) return;
+    function play() { var p = v.play(); if (p && p.catch) p.catch(function () { v.poster = END_POSTER; }); }
+    var rp = $('#tlReplay'); if (rp) rp.addEventListener('click', function () { v.currentTime = 0; play(); });
+    if (reduce) { v.poster = END_POSTER; return; }
+    if (window.__plDone) play(); else document.addEventListener('pl:done', play, { once: true });
+  })();
+
+  /* ---------- isometric engine ---------- */
+  /* ---------- design-project video: plays once when it scrolls into view ---------- */
+  var planV = $('#planVideo');
+  function playPlan() {
+    if (!planV) return;
+    if (reduce) { planV.poster = 'img/design-end.webp'; return; }
+    try { planV.currentTime = 0; } catch (e) {}
+    var pr = planV.play(); if (pr && pr.catch) pr.catch(function () { planV.poster = 'img/design-end.webp'; });
+  }
+  $('#replayPlan').addEventListener('click', playPlan);
+  if (reduce && planV) planV.poster = 'img/design-end.webp';
+
+  /* ---------- reveal triggers ---------- */
+  function countUp(el) {
+    var to = +el.dataset.count, suf = el.dataset.suffix || '', t0 = null;
+    if (reduce) return;
+    (function step(t) { if (t0 === null) t0 = t; var p = Math.min(1, (t - t0) / 1400), e = 1 - Math.pow(1 - p, 3); el.textContent = Math.round(to * e) + suf; if (p < 1) requestAnimationFrame(step); })(performance.now());
+  }
+  var watch = [['[data-count]', countUp], ['.trail', function (e) { e.classList.add('in'); }], ['#fvis', function (e) { e.classList.add('in'); }], ['#tg', function (e) { e.classList.add('in'); }], ['#screen', function (e) { e.classList.add('in'); }], ['#planScene', playPlan]];
+  if ('IntersectionObserver' in window && !reduce) {
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.__fn(e.target); io.unobserve(e.target); } }); }, { threshold: 0.35 });
+    $$('#fvis,#tg,#screen,#stepsGrid').forEach(function (e) { e.classList.add('arm'); });
+    // етапи прив'язані до гортання: униз — з'являються крок за кроком, угору — так само по черзі зникають
+    (function () {
+      var grid = $('#stepsGrid'), steps = $$('.step', grid), n = steps.length, tick = false;
+      function upd() {
+        tick = false;
+        var vh = window.innerHeight, r = grid.getBoundingClientRect();
+        var row = steps.length > 1 && Math.abs(steps[1].offsetTop - steps[0].offsetTop) < 10;   // кілька кроків в одному рядку (ноутбук, планшет)
+        if (row) {
+          var p = (vh * 0.9 - r.top) / (vh * 0.62);          // 0 — блок тільки з'явився внизу, 1 — дійшов до верхньої третини
+          steps.forEach(function (el, i) { el.classList.toggle('in', p >= (i + 0.6) / n); });
+        } else {
+          steps.forEach(function (el) { el.classList.toggle('in', el.getBoundingClientRect().top < vh * 0.84); });   // телефон: кожен крок, коли доходить до екрана
+        }
+      }
+      function req() { if (!tick) { tick = true; requestAnimationFrame(upd); } }
+      window.addEventListener('scroll', req, { passive: true });
+      window.addEventListener('resize', req);
+      upd();
+    })();
+    watch.forEach(function (w) { $$(w[0]).forEach(function (el) { el.__fn = w[1]; io.observe(el); }); });
+  } else {
+    $$('.trail,#fvis,#tg,#screen,#stepsGrid .step').forEach(function (e) { e.classList.add('in'); });
+  }
+  if (reduce) $$('video').forEach(function (v) { if (v.id === 'tlVideo') return; v.removeAttribute('autoplay'); v.pause(); v.controls = true; });
+
+  /* ---------- mobile menu ---------- */
+  var burger = $('#burger'), nav = $('#nav');
+  burger.addEventListener('click', function () { var o = nav.classList.toggle('open'); burger.setAttribute('aria-expanded', o ? 'true' : 'false'); });
+  nav.addEventListener('click', function (e) { if (e.target.tagName === 'A') { nav.classList.remove('open'); burger.setAttribute('aria-expanded', 'false'); } });
+
+  /* ---------- фото страв для карток форматів і тесту ----------
+     Покладіть файли в img/food/ і впишіть сюди шлях, напр. coffee: 'img/food/coffee.jpg'.
+     Поки фото немає, картка показує темний фон із назвою. */
+  var FOOD = {
+    coffee: 'img/food/coffee.webp', pizza: 'img/food/pizza.webp', sushi: 'img/food/sushi.webp', burger: 'img/food/burger.webp',
+    cafe: 'img/food/cafe.webp', pub: 'img/food/pub.webp', street: 'img/food/street.webp', bakery: 'img/food/bakery.webp',
+    dessert: 'img/food/dessert.webp', darkkitchen: 'img/food/darkkitchen.webp'
+  };
+  function food(k) { return FOOD[k] ? ' style="--food:url(' + FOOD[k] + ')"' : ''; }
+
+  /* ---------- formats ---------- */
+  var FORMATS = [
+    ['Кав’ярня', 'Кава', 'coffee'], ['Піцерія', 'Піца', 'pizza'], ['Суші', 'Доставка', 'sushi'], ['Бургерна', 'Фастфуд', 'burger'],
+    ['Шаурма і стрітфуд', 'Стрітфуд', 'street'], ['Пекарня', 'Випічка', 'bakery'], ['Кондитерська', 'Десерти', 'dessert'], ['Dark kitchen', 'Доставка', 'darkkitchen'],
+    ['Кафе при ЖК', 'Кафе', 'cafe'], ['Ресторан або паб', 'Ресторан', 'pub']
+  ];
+  $('#fgrid').innerHTML = FORMATS.map(function (f, i) {
+    return '<article class="fc rv"><i class="fc-img"' + food(f[2]) + ' aria-hidden="true"></i><h3>' + f[0] + '</h3><button class="go" type="button" data-quiz data-format="' + f[0] + '" aria-label="Порахувати: ' + f[0] + '">' + ARROW + '</button></article>';
+  }).join('');
+
+  /* ---------- calculator ---------- */
+  var TIERS = [{ id: 's', label: 'до 20 м²', price: 2800, lo: 10, hi: 18 }, { id: 'm', label: '20–40 м²', price: 3300, lo: 15, hi: 25 }, { id: 'l', label: '40–60 м²', price: 3600, lo: 20, hi: 40 }, { id: 'xl', label: '60–80 м²', price: 4800, lo: 35, hi: 65 }];
+  var tier = 'm', shown = { p: 3300, lo: 15, hi: 25 }, raf = 0;
+  function renderTiers() {
+    $('#tiers').innerHTML = TIERS.map(function (t) { return '<button class="tier" type="button" data-tier="' + t.id + '" aria-pressed="' + (t.id === tier) + '"><span>' + t.label + '</span><small>' + (t.id === tier ? 'обрано' : '$' + fmt(t.price)) + '</small></button>'; }).join('') + '<p style="margin:4px 0 0;font-size:13.5px;color:var(--mute)">Понад 80 м² або нестандартний формат: прорахунок індивідуальний.</p>';
+    $('#bars').innerHTML = TIERS.map(function (t) { return '<button type="button" data-tier="' + t.id + '" aria-pressed="' + (t.id === tier) + '" aria-label="' + t.label + ': $' + t.lo + '–' + t.hi + ' тис."><span class="b" style="bottom:' + (t.lo / 70 * 100).toFixed(1) + '%;height:' + ((t.hi - t.lo) / 70 * 100).toFixed(1) + '%"></span></button>'; }).join('');
+    $('#xl').innerHTML = TIERS.map(function (t) { return '<span>' + t.label + '</span>'; }).join('');
+    $('#curTier').textContent = 'Заклад ' + TIERS.filter(function (t) { return t.id === tier; })[0].label;
+  }
+  function pickTier(id) {
+    tier = id; renderTiers();
+    var t = TIERS.filter(function (x) { return x.id === id; })[0], from = { p: shown.p, lo: shown.lo, hi: shown.hi }, t0 = null;
+    cancelAnimationFrame(raf);
+    (function step(ts) {
+      if (t0 === null) t0 = ts;
+      var k = reduce ? 1 : Math.min(1, (ts - t0) / 700), e = 1 - Math.pow(1 - k, 3);
+      shown = { p: from.p + (t.price - from.p) * e, lo: from.lo + (t.lo - from.lo) * e, hi: from.hi + (t.hi - from.hi) * e };
+      $('#priceVal').textContent = '$' + fmt(Math.round(shown.p / 10) * 10);
+      $('#investVal').textContent = '$' + Math.round(shown.lo) + '–' + Math.round(shown.hi) + 'k';
+      if (k < 1) raf = requestAnimationFrame(step);
+    })(performance.now());
+  }
+  ['#tiers', '#bars'].forEach(function (s) { $(s).addEventListener('click', function (e) { var b = e.target.closest('button'); if (b) pickTier(b.dataset.tier); }); });
+  renderTiers();
+
+  /* ---------- FAQ ---------- */
+  var FAQ = [
+    ['Скільки триває відкриття?', 'Зазвичай від 1,5 до 3 місяців. Якщо приміщення ще немає або проєкт великий, довше. Точні терміни фіксуємо в договорі.'],
+    ['У мене немає приміщення. Що робити?', 'Підберемо його: проаналізуємо локацію, трафік і аудиторію та прорахуємо, чи окупиться формат саме там.'],
+    ['Обладнання й постачальників треба брати у вас?', 'Ні. Підберу все під ваш бюджет, пораджу перевірених партнерів або працюватимемо з вашими.'],
+    ['Можна замовити лише одну послугу?', 'Так. Наприклад, тільки меню й техкарти, аудит, ребрендинг або перезапуск закладу, який уже працює.'],
+    ['Ви працюєте в моєму місті?', 'Працюємо по всій Україні. Відкривали заклади від Харкова до Кіровоградщини.'],
+    ['Що буде після відкриття?', 'Місяць супроводу: допомагаю команді, коригуємо меню й процеси, поки заклад не запрацює рівно.']
+  ];
+  var fq = -1;
+  function renderFaq() {
+    $('#faqList').innerHTML = FAQ.map(function (f, i) { var o = i === fq; return '<div class="qa' + (o ? ' open' : '') + '"><button type="button" data-i="' + i + '" aria-expanded="' + o + '" aria-controls="qa' + i + '"><span>' + f[0] + '</span><svg class="pm" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button><p id="qa' + i + '"' + (o ? '' : ' hidden') + '>' + f[1] + '</p></div>'; }).join('');
+  }
+  $('#faqList').addEventListener('click', function (e) { var b = e.target.closest('button'); if (b) { var i = +b.dataset.i; fq = fq === i ? -1 : i; renderFaq(); } });
+  renderFaq();
+
+  /* ---------- посилання на заклади ---------- */
+  var PIN = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>';
+  var CAM = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg>';
+  $$('.loc[data-venue]').forEach(function (el) {
+    var l = VENUE_LINKS[el.dataset.venue]; if (!l || (!l.map && !l.ig)) return;
+    var name = $('.bt b', el).textContent, row = document.createElement('div'); row.className = 'lk';
+    if (l.map) row.innerHTML += '<a href="' + l.map + '" target="_blank" rel="noopener" aria-label="' + name + ' на карті">' + PIN + 'На карті</a>';
+    if (l.ig) row.innerHTML += '<a href="' + l.ig + '" target="_blank" rel="noopener" aria-label="' + name + ' в Instagram">' + CAM + 'Instagram</a>';
+    $('.bx', el).appendChild(row);
+  });
+
+  /* ---------- телефон: +380 XX XXX XX XX, приймає 0XX…, +38…, вставку з дужками й дефісами ---------- */
+  function phoneDigits(v) { var d = v.replace(/\D/g, ''); if (d.indexOf('380') === 0) d = d.slice(3); else if (d.indexOf('380') !== 0 && d.indexOf('38') === 0 && d.charAt(2) === '0') d = d.slice(2); if (d.charAt(0) === '0') d = d.slice(1); return d.slice(0, 9); }
+  function phoneFmt(d) { var o = '+380'; if (d.length) o += ' ' + d.slice(0, 2); if (d.length > 2) o += ' ' + d.slice(2, 5); if (d.length > 5) o += ' ' + d.slice(5, 7); if (d.length > 7) o += ' ' + d.slice(7, 9); return o; }
+  function phoneOk(el) { var ok = phoneDigits(el.value).length === 9; el.setCustomValidity(ok || !el.value ? '' : 'Введіть номер повністю: +380 XX XXX XX XX'); return ok; }
+  document.addEventListener('focusin', function (e) { var el = e.target; if (el.type === 'tel' && !el.value) el.value = '+380 '; });
+  document.addEventListener('focusout', function (e) { var el = e.target; if (el.type === 'tel') { if (!phoneDigits(el.value).length) el.value = ''; phoneOk(el); } });
+  document.addEventListener('input', function (e) {
+    var el = e.target; if (el.type !== 'tel') return;
+    if (!/^delete/.test(e.inputType || '')) el.value = phoneFmt(phoneDigits(el.value));
+    phoneOk(el);
+  });
+
+  /* ---------- all page forms ---------- */
+  $$('form[data-source]').forEach(function (f) {
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      $$('input[type=tel]', f).forEach(phoneOk);
+      if (!f.reportValidity()) return;
+      var d = { source: f.dataset.source }; $$('input,select', f).forEach(function (el) { if (el.name && el.type !== 'checkbox') d[el.name] = el.value.trim(); });
+      sendLead(d);
+      f.innerHTML = '<div class="ok" role="status"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#D6301C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-7"/></svg><div><b>Дякуємо!</b>Шеф Дмитро зв’яжеться з вами найближчим часом.</div></div>';
+    });
+  });
+
+  /* ---------- quiz popup ---------- */
+  var QUIZ = [
+    { t: 'Що плануєте відкрити?', min: 200, o: [['Кав’ярня', 'coffee'], ['Піцерія', 'pizza'], ['Суші', 'sushi'], ['Бургерна, шаурма, стрітфуд', 'burger'], ['Пекарня, кондитерська', 'dessert'], ['Кафе або ресторан', 'pub']] },
+    { t: 'Чи є у вас приміщення?', min: 200, o: [['Так, уже є'], ['Шукаю зараз'], ['Потрібна допомога з пошуком'], ['Заклад уже працює, потрібен перезапуск']] },
+    { t: 'Яка площа приміщення?', min: 150, o: [['до 20 м²'], ['20–40 м²'], ['40–60 м²'], ['60–80 м²'], ['понад 80 м²'], ['Ще не знаю']] },
+    { t: 'Який бюджет на відкриття?', min: 180, o: [['до $15 000'], ['$15 000–25 000'], ['$25 000–40 000'], ['понад $40 000'], ['Поки не рахував(ла)']] },
+    { t: 'Коли хочете відкритися?', min: 200, o: [['Якнайшвидше'], ['За 2–3 місяці'], ['За пів року'], ['Поки вивчаю тему']] }
+  ];
+  var q = { step: 0, ans: [null, null, null, null, null], sent: false, way: '', contact: {} }, advT = 0, lastFocus = null;
+  var WAY_HINT = { 'Telegram': 'Дмитро напише вам у Telegram на цей номер', 'Viber': 'Дмитро напише вам у Viber на цей номер', 'WhatsApp': 'Дмитро напише вам у WhatsApp на цей номер', 'Дзвінок': 'Дмитро зателефонує вам щодня з 9:00 до 21:00' };
+  var THANKS_WAY = { 'Telegram': 'Шеф Дмитро напише вам у Telegram', 'Viber': 'Шеф Дмитро напише вам у Viber', 'WhatsApp': 'Шеф Дмитро напише вам у WhatsApp', 'Дзвінок': 'Шеф Дмитро зателефонує вам' };
+  var modal = $('#quiz'), body = $('#quizBody');
+  function result() { var fi = q.ans[0], ai = q.ans[2], t = (ai !== null && ai <= 3) ? TIERS[ai] : null; return { format: fi !== null ? QUIZ[0].o[fi][0] : 'Ваш заклад', area: ai !== null ? QUIZ[2].o[ai][0] : 'площа уточнюється', price: t ? '$' + fmt(t.price) : 'індивідуально', invest: t ? '$' + t.lo + '–' + t.hi + ' тис.' : 'після прорахунку' }; }
+  function renderQuiz() {
+    var s = q.step;
+    $('#quizStep').textContent = q.sent ? '✓' : (s < 5 ? (s + 1) + '/5' : '5/5');
+    $('#quizProg').style.width = (q.sent || s >= 5) ? '100%' : (s / 5 * 100) + '%';
+    if (q.sent) { body.innerHTML = '<div class="dlg-thanks" style="animation:pop .4s both"><svg width="96" height="104" viewBox="0 0 120 130" aria-hidden="true"><use href="#bellShape"/></svg><h3 id="quizTitle" style="margin:0;font:700 24px/1.25 var(--fh)">Дякуємо! <span class="red">Прорахунок уже готується</span></h3><p>' + (THANKS_WAY[q.way] || 'Шеф Дмитро зв’яжеться з вами найближчим часом') + ', уточнить деталі й надішле точний прорахунок.</p><button class="btn btn-red" type="button" data-close>Повернутися на сайт</button></div>'; return; }
+    if (s >= 5) {
+      var r = result();
+      body.innerHTML = '<div class="dlg-body dlg-form" style="animation:pop .4s both"><div><div class="res-card"><div class="cap">Ваш результат</div><div style="margin-top:4px;font:700 16px/1.3 var(--fh)">' + r.format + ' · ' + r.area + '</div><div class="two"><div><small>Запуск під ключ</small><b>' + r.price + '</b></div><div><small>Середні інвестиції</small><b style="color:var(--ink)">' + r.invest + '</b></div></div></div>' +
+        '<h4 id="quizTitle">Залиште контакти й отримайте <span class="red">точний прорахунок</span> від шефа</h4><form id="quizForm" novalidate><fieldset class="ways"><legend>Як вам зручніше отримати прорахунок?</legend><label class="way"><input type="radio" name="way" value="Telegram" checked><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 4L3 11l6 2 2 6 3-4 5 4z"/><path d="M9 13l8-6"/></svg>Telegram</span></label><label class="way"><input type="radio" name="way" value="Viber"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3h-6l-5 4v-4H6a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3z"/><path d="M9.5 7.5c0 3 2 5 5 5l1-1.5-1.8-1-.7.7a3 3 0 0 1-1.7-1.7l.7-.7-1-1.8z"/></svg>Viber</span></label><label class="way"><input type="radio" name="way" value="WhatsApp"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 1-13.4 7.8L3 21l1.3-4.4A9 9 0 1 1 21 12z"/><path d="M9 8.5c0 3.6 2.9 6.5 6.5 6.5l1-1.6-2-1-.8.8a3.5 3.5 0 0 1-2.4-2.4l.8-.8-1-2z"/></svg>WhatsApp</span></label><label class="way"><input type="radio" name="way" value="Дзвінок"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Дзвінок</span></label></fieldset><div class="fields"><label class="fld"><span class="sr">Ім’я</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg><input id="qz-name" name="name" type="text" required autocomplete="given-name" enterkeyhint="next" placeholder="Ваше ім’я"></label><label class="fld"><span class="sr">Телефон</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><input id="qz-phone" name="phone" type="tel" inputmode="tel" required autocomplete="tel" placeholder="+380 __ ___ __ __"></label></div><p class="way-hint" id="qzHint" aria-live="polite">Дмитро напише вам у Telegram на цей номер</p><button class="btn btn-red" type="submit">Отримати прорахунок</button><label class="consent"><input type="checkbox" required checked><span>Погоджуюсь з обробкою персональних даних згідно з <a href="#privacy" data-doc="privacy">політикою конфіденційності</a></span></label></form></div>' +
+        '<div class="books" style="flex:0 1 300px;min-height:320px;margin:0 auto" aria-hidden="true"><div class="bk a" style="left:14%;top:16px;width:200px;height:270px"><img src="img/buro-logo-white.svg" alt="" width="1620" height="552" style="width:150px"><div class="t" style="font-size:17px"><small>Прорахунок</small>' + r.format + '</div><div class="l">Інвестиції<br>Вартість запуску<br>Терміни</div></div></div></div>';
+      var qf = $('#quizForm');
+      // підставляємо те, що людина вже ввела в інших формах
+      if (q.contact.name) qf.name.value = q.contact.name;
+      if (q.contact.phone) qf.phone.value = q.contact.phone;
+      if (q.contact.way) { var wr = qf.querySelector('input[name=way][value="' + q.contact.way + '"]'); if (wr) wr.checked = true; }
+      function wayHint() { var w = qf.way.value; $('#qzHint').textContent = WAY_HINT[w] || ''; q.contact.way = w; }
+      qf.addEventListener('change', function (e) { if (e.target.name === 'way') { wayHint(); if (!qf.name.value) qf.name.focus(); else if (!phoneOk(qf.phone)) qf.phone.focus(); } });
+      qf.addEventListener('input', function () { q.contact.name = qf.name.value; q.contact.phone = qf.phone.value; });
+      qf.name.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); qf.phone.focus(); } });
+      wayHint();
+      qf.addEventListener('submit', function (e) {
+        e.preventDefault(); var f = e.target; phoneOk(f.phone); if (!f.reportValidity()) return;
+        q.way = f.way.value;
+        sendLead({ source: 'quiz', way: f.way.value, name: f.name.value.trim(), phone: f.phone.value.trim(), answers: q.ans.map(function (a, i) { return a === null ? null : QUIZ[i].o[a][0]; }), estimate: result() });
+        q.sent = true; renderQuiz();
+      });
+      var first = !qf.name.value ? qf.name : (!phoneOk(qf.phone) ? qf.phone : null); if (first) first.focus();
+      return;
+    }
+    var d = QUIZ[s];
+    body.innerHTML = '<div class="dlg-body"><h3 id="quizTitle" style="animation:pop .35s both">' + d.t + '</h3><div class="opts' + (d.o[0][1] ? ' ph-grid' : '') + '" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,' + d.min + 'px),1fr));animation:pop .4s both">' +
+      d.o.map(function (o, i) { return '<button type="button" class="opt' + (o[1] ? ' ph' : '') + '" data-i="' + i + '" aria-pressed="' + (q.ans[s] === i) + '">' + (o[1] ? '<i class="oimg"' + food(o[1]) + ' aria-hidden="true"></i>' : '') + '<span>' + o[0] + '</span></button>'; }).join('') +
+      '</div><div class="dlg-nav"><button class="btn btn-ghost" type="button" data-back' + (s === 0 ? ' disabled' : '') + '>← Назад</button><button class="btn btn-red" type="button" data-next' + (q.ans[s] === null ? ' disabled' : '') + '>Далі →</button></div></div>';
+  }
+  body.addEventListener('click', function (e) {
+    var o = e.target.closest('.opt');
+    if (o) { var s = q.step; q.ans[s] = +o.dataset.i; renderQuiz(); clearTimeout(advT); advT = setTimeout(function () { q.step = Math.min(s + 1, 5); renderQuiz(); }, 320); return; }
+    if (e.target.closest('[data-back]')) { q.step = Math.max(0, q.step - 1); renderQuiz(); }
+    if (e.target.closest('[data-next]') && q.ans[q.step] !== null) { q.step++; renderQuiz(); }
+    if (e.target.closest('[data-close]')) closeQuiz();
+  });
+  function openQuiz(format) {
+    acc = 0;
+    if (format && !q.sent && q.step === 0) { var map = { 'Кав’ярня': 0, 'Піцерія': 1, 'Суші': 2, 'Бургерна': 3, 'Шаурма і стрітфуд': 3, 'Dark kitchen': 3, 'Пекарня': 4, 'Кондитерська': 4 }; q.ans[0] = map.hasOwnProperty(format) ? map[format] : 5; q.step = 1; }
+    $$('form[data-source]').forEach(function (f) {
+      var n = f.querySelector('[name=name]'), ph = f.querySelector('[name=phone]'), w = f.querySelector('[name=way]');
+      if (n && n.value.trim() && !q.contact.name) q.contact.name = n.value.trim();
+      if (ph && phoneOk(ph) && !q.contact.phone) q.contact.phone = ph.value;
+      if (w && w.value && !q.contact.way) q.contact.way = w.value === 'Дзвінок' ? 'Дзвінок' : w.value;
+    });
+    lastFocus = document.activeElement; modal.hidden = false; document.documentElement.style.overflow = 'hidden'; renderQuiz(); $('#quizClose').focus();
+  }
+  function closeQuiz() { acc = 0; modal.hidden = true; document.documentElement.style.overflow = ''; if (lastFocus && lastFocus.focus) lastFocus.focus(); }
+  document.addEventListener('click', function (e) { var t = e.target.closest('[data-quiz]'); if (t) { e.preventDefault(); openQuiz(t.dataset.format); } });
+  $('#quizClose').addEventListener('click', closeQuiz);
+  modal.addEventListener('click', function (e) { if (e.target === modal) closeQuiz(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !modal.hidden) closeQuiz(); });
+  /* ---------- попап «Детальніше про Дмитра»: 3D-карусель страв ----------
+     Щоб додати страву: покладіть фото в img/dishes/ (картка 600×800 і повне фото) і допишіть рядок нижче. */
+  var CHEF_DISHES = [
+    { key: 'shrimp', name: 'Тигрові креветки гриль' },
+    { key: 'duck', name: 'Качина ніжка з грушею в вині' },
+    { key: 'mussels', name: 'Мідії з ефектом диму' },
+    { key: 'tartare', name: 'Тартар у кокосі з фізалісом' },
+    { key: 'camembert', name: 'Камамбер гриль з вишнею' },
+    { key: 'canape', name: 'Канапе з креветкою' },
+    { key: 'salmon', name: 'Шашлик з лосося на лаваші' }
+  ];
+  var about = $('#about'), abZoom = $('#abZoom'), abLast = null;
+  var d3 = (function () {
+    var stage = $('#d3Stage'), track = $('#d3Track'), nameEl = $('#d3Name'), countEl = $('#d3Count');
+    var n = CHEF_DISHES.length, pos = 0, cards = [], shown = -1, timer = 0, lastUser = 0;
+    track.innerHTML = CHEF_DISHES.map(function (d, i) {
+      var src = 'img/dishes/' + d.key + '-card.webp';
+      return '<div class="dsh-card" data-i="' + i + '"><div class="dsh-face"><img src="' + src + '" alt="' + d.name + '" width="600" height="800" loading="lazy" draggable="false"></div><div class="dsh-ref" aria-hidden="true"><img src="' + src + '" alt="" loading="lazy" draggable="false"></div></div>';
+    }).join('');
+    cards = $$('.dsh-card', track);
+    function wrapD(d) { d = ((d % n) + n) % n; return d > n / 2 ? d - n : d; }
+    function layout() {
+      var cw = cards[0].offsetWidth || 240, half = stage.offsetWidth / 2;
+      var sp1 = Math.min(cw * 1.08, half - cw * 0.06), sp2 = cw * 0.45;
+      cards.forEach(function (c, i) {
+        var d = wrapD(i - pos), ad = Math.abs(d), sg = d < 0 ? -1 : 1, k = Math.min(ad, 1);
+        var x = sg * (ad <= 1 ? ad * sp1 : sp1 + (ad - 1) * sp2);
+        var z = -(k * 140 + Math.max(0, ad - 1) * 90), ry = -sg * k * 46;
+        c.style.transform = 'translate3d(' + x.toFixed(1) + 'px,' + (k * 10).toFixed(1) + 'px,' + z.toFixed(1) + 'px) rotateY(' + ry.toFixed(1) + 'deg) scale(' + (1 - k * 0.08).toFixed(3) + ')';
+        c.style.opacity = ad > 1.6 ? Math.max(0, 1 - (ad - 1.6) * 2.5).toFixed(2) : 1;
+        c.style.filter = 'brightness(' + (1 - k * 0.38).toFixed(2) + ')';
+        c.style.zIndex = Math.round(100 - ad * 10);
+        c.classList.toggle('on', ad < 0.5);
+        c.setAttribute('aria-hidden', ad < 0.5 ? 'false' : 'true');
+      });
+      var cur = ((Math.round(pos) % n) + n) % n;
+      if (cur !== shown) {
+        shown = cur; nameEl.textContent = CHEF_DISHES[cur].name;
+        nameEl.classList.remove('sw'); void nameEl.offsetWidth; nameEl.classList.add('sw');
+        countEl.textContent = ('0' + (cur + 1)).slice(-2) + ' / ' + ('0' + n).slice(-2);
+      }
+    }
+    function go(p) { pos = p; layout(); }
+    function user() { lastUser = Date.now(); }
+    $('#d3Prev').addEventListener('click', function () { user(); go(Math.round(pos) - 1); });
+    $('#d3Next').addEventListener('click', function () { user(); go(Math.round(pos) + 1); });
+    stage.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); user(); go(Math.round(pos) - 1); }
+      else if (e.key === 'ArrowRight') { e.preventDefault(); user(); go(Math.round(pos) + 1); }
+      else if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); zoom(shown); }
+    });
+    // перетягування мишею або пальцем
+    var sx = 0, sp = 0, moved = 0, down = false;
+    stage.addEventListener('pointerdown', function (e) { if (e.button > 0) return; down = true; moved = 0; sx = e.clientX; sp = pos; user(); stage.setPointerCapture(e.pointerId); });
+    stage.addEventListener('pointermove', function (e) {
+      if (!down) return; var dx = e.clientX - sx; moved = Math.max(moved, Math.abs(dx));
+      if (moved > 6) { stage.classList.add('drag'); go(sp - dx / ((cards[0].offsetWidth || 240) * 1.1)); }
+    });
+    function up(e) {
+      if (!down) return; down = false; stage.classList.remove('drag');
+      if (moved > 6) { go(Math.round(pos)); return; }
+      var c = document.elementsFromPoint(e.clientX, e.clientY).map(function (el) { return el.closest && el.closest('.dsh-card'); }).filter(Boolean)[0];
+      if (!c) return; var i = +c.dataset.i;
+      if (i === shown) zoom(i); else go(Math.round(pos) + wrapD(i - pos));
+    }
+    stage.addEventListener('pointerup', up);
+    stage.addEventListener('pointercancel', function () { down = false; stage.classList.remove('drag'); go(Math.round(pos)); });
+    // гортання двома пальцями на тачпаді ноутбука, як свайп на телефоні
+    var wheelT = 0, wheel0 = null;
+    $('#dish3d').addEventListener('wheel', function (e) {
+      var dx = e.deltaX || (e.shiftKey ? e.deltaY : 0);
+      if (!dx || Math.abs(dx) < Math.abs(e.deltaY) * 0.8) return;   // вертикальне гортання лишаємо попапу
+      e.preventDefault(); user();
+      if (e.deltaMode === 1) dx *= 16;
+      if (wheel0 === null) wheel0 = Math.round(pos);
+      stage.classList.add('drag');
+      go(Math.max(wheel0 - 2.4, Math.min(wheel0 + 2.4, pos + dx / ((cards[0].offsetWidth || 240) * 1.25))));
+      clearTimeout(wheelT);
+      wheelT = setTimeout(function () {
+        var d = pos - wheel0, n2 = Math.abs(d) < 0.18 ? 0 : (d > 0 ? 1 : -1) * Math.max(1, Math.round(Math.abs(d)));
+        stage.classList.remove('drag'); go(wheel0 + n2); wheel0 = null;
+      }, 220);
+    }, { passive: false });
+    function zoom(i) { var d = CHEF_DISHES[i], im = $('img', abZoom); im.src = 'img/dishes/' + d.key + '.webp'; im.alt = d.name; abZoom.hidden = false; }
+    window.addEventListener('resize', function () { if (!about.hidden) layout(); });
+    // сама гортається, поки людина нічого не чіпає
+    function start() { layout(); clearInterval(timer); if (!reduce) timer = setInterval(function () { if (Date.now() - lastUser > 6000 && abZoom.hidden && !stage.matches(':hover')) go(Math.round(pos) + 1); }, 3200); }
+    function stop() { clearInterval(timer); }
+    return { start: start, stop: stop };
+  })();
+  function openAbout() { abLast = document.activeElement; about.hidden = false; document.documentElement.style.overflow = 'hidden'; d3.start(); $('#aboutClose').focus(); }
+  function closeAbout(back) { d3.stop(); abZoom.hidden = true; about.hidden = true; document.documentElement.style.overflow = ''; if (back !== false && abLast && abLast.focus) abLast.focus(); }
+  document.addEventListener('click', function (e) { if (e.target.closest('[data-about]')) { e.preventDefault(); openAbout(); } });
+  $('#aboutClose').addEventListener('click', closeAbout);
+  about.addEventListener('click', function (e) {
+    if (e.target === about) return closeAbout();
+    var z = e.target.closest('[data-zoom]'); if (z) { $('img', abZoom).src = z.dataset.zoom; $('img', abZoom).alt = ($('img', z) || {}).alt || ''; abZoom.hidden = false; return; }
+    if (e.target.closest('#abZoom')) { abZoom.hidden = true; return; }
+    if (e.target.closest('[data-about-quiz]')) { closeAbout(false); openQuiz(); }
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !about.hidden) { if (!abZoom.hidden) abZoom.hidden = true; else closeAbout(); } });
+
+  /* ---------- документи: політика конфіденційності й договір оферти (відкриваються з посилань і за адресою #privacy / #oferta) ---------- */
+  var docm = $('#doc'), docLast = null;
+  function anyModal() { return $$('.modal').some(function (m) { return !m.hidden; }); }
+  function openDoc(k) {
+    var t = document.getElementById('doc-' + k); if (!t) return;
+    var body = $('#docBody'); body.innerHTML = ''; body.appendChild(t.content.cloneNode(true));
+    $('#docTitle span').textContent = $('.doc-h', body).textContent;
+    if (docm.hidden) docLast = document.activeElement;
+    docm.hidden = false; docm.querySelector('.dialog').scrollTop = 0; document.documentElement.style.overflow = 'hidden'; $('#docClose').focus();
+  }
+  function closeDoc() {
+    docm.hidden = true; if (!anyModal()) document.documentElement.style.overflow = '';
+    if (/^#(privacy|oferta)$/.test(location.hash)) { try { history.replaceState(null, '', location.pathname + location.search); } catch (err) {} }
+    if (docLast && docLast.focus) docLast.focus();
+  }
+  document.addEventListener('click', function (e) { var a = e.target.closest('[data-doc]'); if (a) { e.preventDefault(); e.stopPropagation(); openDoc(a.dataset.doc); } }, true);
+  $('#docClose').addEventListener('click', closeDoc);
+  docm.addEventListener('click', function (e) { if (e.target === docm) closeDoc(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !docm.hidden) { e.stopImmediatePropagation(); closeDoc(); } }, true);
+  function docFromHash() { var m = /^#(privacy|oferta)$/.exec(location.hash); if (m) openDoc(m[1]); }
+  window.addEventListener('hashchange', docFromHash);
+  if (/^#(privacy|oferta)$/.test(location.hash)) { if (window.__plDone) docFromHash(); else document.addEventListener('pl:done', docFromHash, { once: true }); }
+
+  /* автопоказ: після кожної хвилини, коли людина гортає сайт; зупиняється, щойно залишено заявку */
+  var acc = 0, lastAct = 0, prevTick = 0;
+  ['scroll', 'wheel', 'touchmove', 'keydown'].forEach(function (ev) { window.addEventListener(ev, function () { lastAct = Date.now(); }, { passive: true }); });
+  function tick() {
+    var now = Date.now(), dt = prevTick ? Math.min(now - prevTick, 2000) : 0; prevTick = now;
+    if (leadDone || q.sent) return;
+    var ae = document.activeElement, typing = ae && /^(INPUT|SELECT|TEXTAREA)$/.test(ae.tagName);
+    var idle = !modal.hidden || !about.hidden || !document.getElementById('doc').hidden || document.hidden || typing || document.documentElement.classList.contains('pl-on') || now - lastAct > 10000;
+    if (!idle) acc += dt;
+    if (acc >= POPUP_EVERY_MS) openQuiz();
+  }
+  if (POPUP_EVERY_MS > 0) setInterval(tick, 1000);
+})();
+</script>
+
+</body>
+</html>
